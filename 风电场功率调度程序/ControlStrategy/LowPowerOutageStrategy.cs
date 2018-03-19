@@ -16,7 +16,7 @@ namespace 风电场功率调度程序.ControlStrategy
 
         public bool Caculate(string setActivcPowerLimitValue)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public string GetCommandSqlString(string setActivcPowerLimitValue)
