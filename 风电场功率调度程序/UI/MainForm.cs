@@ -13,7 +13,7 @@ namespace 风电场功率调度程序
 {
     public partial class MainForm : Form
     {
-        private Form a;
+     
         public MainForm()
         {
             InitializeComponent();
