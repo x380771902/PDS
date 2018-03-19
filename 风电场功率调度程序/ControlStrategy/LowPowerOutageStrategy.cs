@@ -10,15 +10,8 @@ namespace 风电场功率调度程序.ControlStrategy
     {
         public string controlName
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;set;
+            
         }
 
         public bool Caculate(string setActivcPowerLimitValue)
