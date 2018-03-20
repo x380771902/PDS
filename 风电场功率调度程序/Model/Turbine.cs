@@ -450,11 +450,9 @@ namespace 风电场功率调度程序
         {
             try
             {
-
                string sqlString = GetSetTagValueSqlString(PropetyKey, Value);
                int result =  MysqlDBHelper.ExecuteCommand(sqlString);
-
-                if (result > 0 )
+               if (result > 0 )
                 {
                     return true;
                 }
@@ -463,7 +461,6 @@ namespace 风电场功率调度程序
             }
             catch (Exception ex )
             {
-
                 return false;
             }
         }

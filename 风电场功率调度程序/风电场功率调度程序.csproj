@@ -53,10 +53,6 @@
     <ApplicationIcon>Resources\bitbug_favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.OPCAutomation">
-      <HintPath>bin\Debug\Interop.OPCAutomation.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -165,6 +161,15 @@
     <EmbeddedResource Include="UI\RealtimeDateVisual.resx">
       <DependentUpon>RealtimeDateVisual.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\风电场功率调度程序.exe.config" />
+    <None Include="bin\Debug\风电场功率调度程序.vshost.exe.config" />
+    <None Include="bin\Debug\风电场功率调度程序.vshost.exe.manifest" />
+    <None Include="bin\Debug\风电场风机限电切机启机仿真程序.vshost.exe.config" />
+    <None Include="bin\Debug\风电场风机限电切机启机仿真程序.vshost.exe.manifest" />
+    <None Include="bin\Release\风电场功率调度程序.exe.config" />
+    <None Include="bin\Release\风电场功率调度程序.vshost.exe.config" />
+    <None Include="bin\Release\风电场功率调度程序.vshost.exe.manifest" />
+    <None Include="bin\Release\风电场风机限电切机启机仿真程序.vshost.exe.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -194,6 +199,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bitbug_favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\StackExchange.Redis.dll" />
+    <Content Include="bin\Debug\StackExchange.Redis.xml" />
+    <Content Include="bin\Debug\WindFarm_Config.xml" />
+    <Content Include="bin\Debug\XEMC_WindFarm.xml" />
+    <Content Include="bin\Debug\风电场功率调度程序.exe" />
+    <Content Include="bin\Debug\风电场功率调度程序.pdb" />
+    <Content Include="bin\Debug\风电场功率调度程序.vshost.exe" />
+    <Content Include="bin\Release\Interop.OPCAutomation.dll" />
+    <Content Include="bin\Release\MySql.Data.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\StackExchange.Redis.dll" />
+    <Content Include="bin\Release\StackExchange.Redis.xml" />
+    <Content Include="bin\Release\XEMC_WindFarm.xml" />
+    <Content Include="bin\Release\风电场功率调度程序.exe" />
+    <Content Include="bin\Release\风电场功率调度程序.pdb" />
+    <Content Include="bin\Release\风电场功率调度程序.vshost.exe" />
+    <Content Include="bin\Release\风电场风机限电切机启机仿真程序.vshost.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
