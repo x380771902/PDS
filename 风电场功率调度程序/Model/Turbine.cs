@@ -35,12 +35,7 @@ namespace 风电场功率调度程序
 
             //初始化功率曲线对照表
             ws = Turbine.Interpolation(ws, 3600);
-            activepower = Turbine.Interpolation(activepower, 3600);
-          
-           
-           
-        
-           
+            activepower = Turbine.Interpolation(activepower, 3600);  
         }
 
         public Turbine()
@@ -485,7 +480,20 @@ namespace 风电场功率调度程序
             }
         }
 
+
+        /// <summary>
+        /// 当前有功功率
+        /// </summary>
+        public int ReActivePower
+        {
+            get
+            {
+                return   (int)GetTagValue("CnvGdPwrRt");  
+            }
+
+        }
         #endregion
+
 
     }
 }

@@ -207,5 +207,46 @@ namespace 风电场功率调度程序
             set;
         }
         public int LimitActivePowerSp { get; internal set; }
+
+        /// <summary>
+        /// 不可控无功
+        /// </summary>
+        public float UnControlActivePowerValue
+        {
+            get;set;
+        }
+
+        /// <summary>
+        /// 不可控无功
+        /// </summary>
+        public int UnControlReactivePowerValue
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// 可控无功
+        /// </summary>
+        public float ControllableActivePowerValue
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// 可控无功
+        /// </summary>
+        public int ControllableReactivePowerValue
+        {
+            get; set;
+        }
+
+
+
+
+        public int SettingCycle
+        {
+            get;
+            set;
+        }
     }
 }

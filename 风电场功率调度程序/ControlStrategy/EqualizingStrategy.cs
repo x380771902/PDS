@@ -18,20 +18,12 @@ namespace 风电场功率调度程序
         }
         public string controlName
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
+            get;set;
         }
 
         public bool Caculate(string setActivcPowerLimitValue)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public string GetCommandSqlString(string setActivcPowerLimitValue)

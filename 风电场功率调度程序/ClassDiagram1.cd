@@ -3,7 +3,7 @@
   <Class Name="风电场功率调度程序.Windfarm">
     <Position X="6.5" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>gSIAAAACEAAAAAAAABAEUAAAAAAEAAAAAAAAABBAgAA=</HashCode>
+      <HashCode>gSIAEAACEAAAAAAAABAEUEQAAAAEAAAAACAAABBAgAA=</HashCode>
       <FileName>Model\Windfarm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -20,7 +20,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>KAAgAQAg5IAAAABFgAAIDAQgOAiECQAAAwggBIEgQAA=</HashCode>
+      <HashCode>KAAgAQAg5IAAAABFgAAIDAQgMAiECQAAQwggBIEgQAA=</HashCode>
       <FileName>Model\Turbine.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

@@ -85,6 +85,7 @@
     <Compile Include="ControlStrategy\IStrategy.cs" />
     <Compile Include="ControlStrategy\LowPowerOutageStrategy.cs" />
     <Compile Include="ControlStrategy\SpeedLimitStrategy.cs" />
+    <Compile Include="ControlStrategy\StateStrategy.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Model\IDeviceTag.cs" />
     <Compile Include="Model\PowerCurve.cs" />

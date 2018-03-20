@@ -14,8 +14,7 @@ namespace 风电场功率调度程序
 
         public XmlDocument doc = null;
         private RedisHelper rh = null;
-        public MysqlDBHelper Mysqldbhelp { get; set; }
-
+        public MysqlDBHelper Mysqldbhelp { get; set; } 
         private Timer timer_GetTagList = null;
         public WindFarm_ConfigManager() { 
             LoadConfigFile();
@@ -97,7 +96,8 @@ namespace 风电场功率调度程序
              ConfigWindfarm.WindfarmName = windfarminfonode.SelectSingleNode("Title").InnerText;
              ConfigWindfarm.GridCapacity = int.Parse( windfarminfonode.SelectSingleNode("GridCapacity").InnerText);
              ConfigWindfarm.ActivePower1MinitueMaxRate = float.Parse(windfarminfonode.SelectSingleNode("ActivePower1MinitueMaxRate").InnerText);
-             ConfigWindfarm.ActivePower10MinitueMaxRate = float.Parse(windfarminfonode.SelectSingleNode("ActivePower10MinitueMaxRate").InnerText); 
+             ConfigWindfarm.ActivePower10MinitueMaxRate = float.Parse(windfarminfonode.SelectSingleNode("ActivePower10MinitueMaxRate").InnerText);          
+             ConfigWindfarm.SettingCycle = int.Parse(windfarminfonode.SelectSingleNode("SettingCycle").InnerText.Trim());
         }
 
         /// <summary>
