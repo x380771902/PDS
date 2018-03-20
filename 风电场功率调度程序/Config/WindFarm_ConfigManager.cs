@@ -8,7 +8,7 @@ using System.Timers;
 
 namespace 风电场功率调度程序
 {
-    public class WindFarm_ConfigManager
+    public class WindFarm_Manager
     {
 
 
@@ -16,12 +16,12 @@ namespace 风电场功率调度程序
         private RedisHelper rh = null;
         public MysqlDBHelper Mysqldbhelp { get; set; } 
         private Timer timer_GetTagList = null;
-        public WindFarm_ConfigManager() { 
+        public WindFarm_Manager() { 
             LoadConfigFile();
         }
 
 
-        public WindFarm_ConfigManager(string path) { }
+        public WindFarm_Manager(string path) { }
 
         public Windfarm ConfigWindfarm { get; set; }
 

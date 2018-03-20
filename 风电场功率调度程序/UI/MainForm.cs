@@ -25,14 +25,14 @@ namespace 风电场功率调度程序
         private Windfarm wf = null;
         private Random rd = new Random();
         private Config config = null;
-        WindFarm_ConfigManager WFCM = null;
+        WindFarm_Manager WFM = null;
 
 
         void initData()
         {
             config = new Config();
-            WFCM = new WindFarm_ConfigManager();
-            wf = WFCM.ConfigWindfarm;
+            WFM = new WindFarm_Manager();
+            wf = WFM.ConfigWindfarm;
            
 
             //初始化风电场信息

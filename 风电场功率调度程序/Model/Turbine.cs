@@ -86,6 +86,7 @@ namespace 风电场功率调度程序
             error,
             limitedPowerRunning,
             limitedPowerStop,
+            unknown
         }
 
 
@@ -96,14 +97,27 @@ namespace 风电场功率调度程序
         /// </summary>
         public turbineStatu RunState
         {
-            get { return runstate; }
-            set
-            {
-                if (value == turbineStatu.stop || value == turbineStatu.error || value == turbineStatu.limitedPowerStop)
-                    this.lastdatetime = DateTime.Now;
-                runstate = value;
-
-            }
+            get { 
+                int result = (int)GetTagValue("TurbineState"); 
+                if (result == 6 ||result == 7) //运行
+                {
+                    runstate = turbineStatu.running;
+                }
+                else if (result == 2 || result == 3 || result == 8 || result == 9) //停机
+                {
+                    runstate = turbineStatu.stop;
+                }
+                else if (result == 1) //故障
+                {
+                    runstate = turbineStatu.error;
+                }
+                else if ( result == 4 || result == 5)//待机
+                { runstate = turbineStatu.standby; }
+                else  
+                {
+                  runstate = turbineStatu.unknown;
+                } 
+                return runstate; } 
         }
 
         /// <summary>
@@ -441,6 +455,12 @@ namespace 风电场功率调度程序
 
         }
 
+        /// <summary>
+        /// 设定属性值指令
+        /// </summary>
+        /// <param name="PropetyKey">属性名称</param>
+        /// <param name="Value">属性数值</param>
+        /// <returns>指令生产结果 true=成功 false=失败</returns>
         public bool SetTagValue(string PropetyKey, string Value)
         {
             try

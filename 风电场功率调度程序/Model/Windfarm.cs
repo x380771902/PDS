@@ -12,8 +12,13 @@ namespace 风电场功率调度程序
         public Windfarm()
         {
             this.ListTurbines = new List<Turbine>();
-        }
+        } 
 
+        /// <summary>
+        /// 风场模拟器构造函数
+        /// </summary>
+        /// <param name="windFarmNameint"></param>
+        /// <param name="turbineNumber"></param>
         public Windfarm(string windFarmNameint ,int turbineNumber)
         {
             WindfarmName = windFarmNameint;
