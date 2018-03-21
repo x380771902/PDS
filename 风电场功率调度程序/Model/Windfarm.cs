@@ -111,7 +111,7 @@ namespace 风电场功率调度程序
                 {
                     foreach (var i in ListTurbines)
                     { 
-                        i.RunState = Turbine.turbineStatu.limitedPowerStop;
+                        //i.RunState = Turbine.turbineStatu.limitedPowerStop;
                     }
                 }
                 else
@@ -156,7 +156,7 @@ namespace 风电场功率调度程序
             limitstartturbine();
             if (startQueue.Count > 0)
             {
-                ListTurbines.Find(e => e.TurbineID == startQueue.First<Turbine>().TurbineID).RunState = Turbine.turbineStatu.limitedPowerRunning;
+                //ListTurbines.Find(e => e.TurbineID == startQueue.First<Turbine>().TurbineID).RunState = Turbine.turbineStatu.limitedPowerRunning;
                // startQueue.RemoveAt(0);
             }
 
@@ -171,7 +171,7 @@ namespace 风电场功率调度程序
             {
 
 
-                ListTurbines.Find(e => e.TurbineID == stopQueue.First<Turbine>().TurbineID).RunState = Turbine.turbineStatu.limitedPowerStop;
+                //ListTurbines.Find(e => e.TurbineID == stopQueue.First<Turbine>().TurbineID).RunState = Turbine.turbineStatu.limitedPowerStop;
 
 
                // stopQueue.RemoveAt(0);

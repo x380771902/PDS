@@ -14,9 +14,17 @@ namespace 风电场功率调度程序
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false); 
-            Application.Run(new MainForm());
+           // Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+             
+
+            Login frm = new Login();
+            Sunisoft.IrisSkin.SkinEngine skin = new Sunisoft.IrisSkin.SkinEngine((System.ComponentModel.Component)frm);
+            skin.SkinFile = Application.StartupPath + @"/Skins/Emerald.ssk"; // 指定皮肤文件
+            skin.TitleFont = new System.Drawing.Font("微软雅黑", 10F);// 指定标题栏的Font。
+            Application.Run(frm);
+
+            //Application.Run(new Login());
         }
     }
 }

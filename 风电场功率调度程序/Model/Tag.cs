@@ -13,7 +13,7 @@ namespace 风电场功率调度程序
         private string tagQuality = ""; 
         private string tagDatatype = "";
         private string tagID="";
-        private float  tagRatio=1.0f;
+       // private float  tagRatio=1.0f;
         private double tagValue; 
 
         public Tag()
@@ -31,6 +31,8 @@ namespace 风电场功率调度程序
             this.TagDatatype = dataType;
         }
 
+
+        #region 属性
         /// <summary>
         /// 测点ID
         /// </summary>
@@ -81,7 +83,7 @@ namespace 风电场功率调度程序
         }
 
         /// <summary>
-        /// 通讯质量
+        /// 测点通讯质量192=good 0=bad
         /// </summary>
         public string TagQuality
         {
@@ -90,11 +92,9 @@ namespace 风电场功率调度程序
             set { tagQuality = value; }
         }
 
+        #endregion
 
 
-        /// <summary>
-        /// 测点通讯质量192=good 0=bad
-        /// </summary>
 
     }
 }

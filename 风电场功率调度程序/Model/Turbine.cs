@@ -339,14 +339,7 @@ namespace 风电场功率调度程序
         /// </summary>
         public void startTurbuie()
         {
-            if (WSpeedNac >= 3.0f && WSpeedNac <= 25.0f)
-            {
-                this.RunState = turbineStatu.running;
-            }
-            else
-            {
-                this.RunState = turbineStatu.standby;
-            }
+           
         }
 
         /// <summary>
@@ -474,7 +467,7 @@ namespace 风电场功率调度程序
                 else
                     return false;
             }
-            catch (Exception ex )
+            catch (Exception  )
             {
                 return false;
             }

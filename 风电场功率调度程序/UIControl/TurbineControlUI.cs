@@ -12,7 +12,7 @@ namespace 风电场功率调度程序
 {
     public partial class TurbineControlUI : UserControl
     {
-        private int p1width=0;
+       
         public TurbineControlUI(Turbine t)
         {
           
@@ -20,10 +20,10 @@ namespace 风电场功率调度程序
             Ts = t.RunState;
             this.label2.Text = t.TurbineID.ToString();
             this.WSpeedNac = t.WSpeedNac;
-            this.ActivePower = t.ActivePower;
-            p1width = this.p1.Width;
-            this.p1.Width = (int)(ActivePower/2000*p1width);
-            this.labLastStopDatatime.Text = t.LastDateTime.ToShortDateString() +" " + t.LastDateTime.ToShortTimeString() ;
+            this.activePower = t.ActivePower;
+            this.activePowerLimit = (int)t.LimitActivePower;
+            this.p1.Height = (int)(ActivePower/2000* Height);
+         
         }
 
         public TurbineControlUI()
@@ -74,18 +74,15 @@ namespace 风电场功率调度程序
                         break;
                     default:
                         this.BackColor = Color.Gray;
-                        this.label1.Text = "为初始化";
+                        this.label1.Text = "未知";
                         break;
                 }
             }
-        }
-
-
+        } 
 
         public float WSpeedNac
         {
-            get { return this.wSpeedNac; }
-
+            get { return this.wSpeedNac; } 
             set
             {
                 this.wSpeedNac = value;
@@ -97,18 +94,14 @@ namespace 风电场功率调度程序
         {
             get
             {
-               
                 return activePower;
-            } 
-
+            }  
             set
-            { this.activePower = value ;
-             
+            {
+                this.activePower = value ; 
                 this.label8.Text = Math.Round(activePower,2).ToString()+ "kW";
-                this.p1.Width = (int)(ActivePower / 2000 * this.panel1.Width);
+                this.p1.Height = (int)(ActivePower / 2000 * this.Height);
             }
-             
-
         }
 
         public int ActivePowerLimitValue
@@ -120,8 +113,7 @@ namespace 风电场功率调度程序
             set
             {
                 activePowerLimit = value; 
-                this.labLimitActPower.Text = activePowerLimit.ToString() + " kW";
-                 ;
+                this.labLimitActPower.Text = activePowerLimit.ToString() + " kW"; 
             }
         }
 
@@ -132,6 +124,16 @@ namespace 风电场功率调度程序
             {
                 lastStopDatetime = value;
             }
+        }
+
+        private void TurbineControlUI_MouseHover(object sender, EventArgs e)
+        {
+            this.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void TurbineControlUI_MouseLeave(object sender, EventArgs e)
+        {
+            this.BorderStyle = BorderStyle.FixedSingle;
         }
     }
 }

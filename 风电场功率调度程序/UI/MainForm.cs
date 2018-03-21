@@ -13,11 +13,11 @@ namespace 风电场功率调度程序
 {
     public partial class MainForm : Form
     {
-     
+
         public MainForm()
         {
             InitializeComponent();
-            this.Icon =  Properties.Resources.bitbug_favicon;
+
 
             initData();
         }
@@ -25,43 +25,49 @@ namespace 风电场功率调度程序
         private Windfarm wf = null;
         private Random rd = new Random();
         private Config config = null;
+        private User CurrendUser = new User();
         WindFarm_Manager WFM = null;
-
+        BindingSource bs1 = null;
+        BindingSource bs2 = null;
+        System.Timers.Timer SetLimitActivePowerValueTime = new System.Timers.Timer();
+        int LimitActivePower = 0;
 
         void initData()
         {
+            this.Icon = Properties.Resources.bitbug_favicon;
             config = new Config();
             WFM = new WindFarm_Manager();
             wf = WFM.ConfigWindfarm;
-           
-
             //初始化风电场信息
-           
+
             for (int i = 0; i < wf.ListTurbines.Count; i++)
             {
                 TurbineControlUI turc = new TurbineControlUI(wf.ListTurbines[i]);
                 FLP1.Controls.Add(turc);
-            } 
+            }
+            SetLimitActivePowerValueTime.Interval = wf.SettingCycle;
+            SetLimitActivePowerValueTime.Elapsed += SetLimitActivePowerValueTime_Elapsed;
+            LimitActivePower = (int)this.nudLimit.Value;
         }
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < wf.ListTurbines.Count; i++)
-            {
-                var r = (float) Math.Round(NextDouble(rd, (double) nud2.Value, (double) nud1.Value), 1);
-                 
-                Thread.Sleep(10);
+            { 
+               ///Thread.Sleep();
                 var a = FLP1.Controls[i] as TurbineControlUI;
                 a.WSpeedNac = wf.ListTurbines[i].WSpeedNac;
                 a.ActivePower = wf.ListTurbines[i].ActivePower;
                 a.Ts = wf.ListTurbines[i].RunState;
-                a.ActivePowerLimitValue = (int) wf.ListTurbines[i].LimitActivePower;
+                a.ActivePowerLimitValue = (int)wf.ListTurbines[i].LimitActivePower;
                 a.LastDateTime = wf.ListTurbines[i].LastDateTime;
             }
             this.labTotalActivePower.Text = wf.TatolActivePower.ToString() + " kW";
             this.labAws.Text = Math.Round(wf.AvgWindSpeed, 1).ToString() + " m/s ";
             this.labTheoreticalPower.Text = wf.TheoreticalPower.ToString() + " kW";
-          
+
         }
 
 
@@ -77,7 +83,7 @@ namespace 风电场功率调度程序
         {
             if (random != null)
             {
-                return random.NextDouble()*(maxiDouble - miniDouble) + miniDouble;
+                return random.NextDouble() * (maxiDouble - miniDouble) + miniDouble;
             }
             else
             {
@@ -86,28 +92,32 @@ namespace 风电场功率调度程序
         }
 
         private void btnEnableLimitActivePower_Click(object sender, EventArgs e)
-        { 
-            this.timer1.Tick += Timer1_Tick;
-            this.btnEnableLimitActivePower.Enabled=false;
-            this.btnDisableLimitActivePower.Enabled = true;
-        }
-
-        private void Timer1_Tick(object sender, EventArgs e)
         {
-           wf.LimitActivePower = (int) this.nudLimit.Value;
-           // startOrStopturbine(); 
+            this.SetLimitActivePowerValueTime.Elapsed += SetLimitActivePowerValueTime_Elapsed;
+            this.SetLimitActivePowerValueTime.Start();
+            this.btnEnableLimitActivePower.Enabled = false;
+            this.btnDisableLimitActivePower.Enabled = true;
+            btnSetActivePowerLimitValue.Enabled = true;
         }
-
+        
         private void btnDisableLimitActivePower_Click(object sender, EventArgs e)
         {
-            wf.LimitActivePower = 50000;
-            this.timer1.Tick -= Timer1_Tick;
+            wf.LimitActivePower = wf.GridCapacity;
+            this.SetLimitActivePowerValueTime.Start();
+            this.SetLimitActivePowerValueTime.Elapsed -= SetLimitActivePowerValueTime_Elapsed;
             this.btnEnableLimitActivePower.Enabled = true;
             this.btnDisableLimitActivePower.Enabled = false;
+            btnSetActivePowerLimitValue.Enabled = false;
+        }
+        private void btnSetActivePowerLimitValue_Click(object sender, EventArgs e)
+        {
+            this.LimitActivePower = (int)this.nudLimit.Value;
+        }
+        private void SetLimitActivePowerValueTime_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            wf.LimitActivePower = LimitActivePower;
         } 
 
-        BindingSource bs1 = null;
-        BindingSource bs2 = null;
         private  void startOrStopturbine()
         { 
             if (wf.LimitActivePowerSp > wf.TatolActivePower && Math.Abs((wf.LimitActivePowerSp - wf.TatolActivePower)) >= 200)
@@ -134,6 +144,8 @@ namespace 风电场功率调度程序
             
         }
 
+
+        #region 菜单栏事件
         private void 实时图ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Chart c = new Chart(wf);
@@ -157,5 +169,17 @@ namespace 风电场功率调度程序
                 e.Cancel = true;
             } 
         }
+
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About ab = new About();
+            ab.ShowDialog();
+        }
+
+      
     }
+    #endregion
+
+
 }

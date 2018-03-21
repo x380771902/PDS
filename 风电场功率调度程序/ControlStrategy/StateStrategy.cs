@@ -9,31 +9,21 @@ namespace 风电场功率调度程序
     /// <summary>
     /// 风场可风机状态判定策略
     /// </summary>
-    public class StateStrategy : IControlStrategy
+    public class StateStrategy  
     {
 
         public StateStrategy()
         {
              
-        }
-
-        public string controlName
-        {
-            get;set;
-        }
-
-        public bool Caculate(string setActivcPowerLimitValue)
-        {
-            throw new NotImplementedException();
-        }
-
+        }  
 
         /// <summary>
         /// 计算当前可控风机功率列表、获取有功不可控参数、无功不可控容量
         /// </summary>
         /// <returns>获取当前可控列表可控风机列别</returns>
-        public List<Turbine> Caculate()
+        public static List<Turbine> Caculate(Windfarm wf)
         {
+            List<Turbine> listTurbine = new List<Turbine>();
             float cac = 0;//可控有功功率
             float ucac = 0;//不可控有功功率
             int crac = 0;//可控无功功率
@@ -60,20 +50,8 @@ namespace 风电场功率调度程序
 
             return listTurbine;
         }
+ 
 
-        public string GetCommandSqlString(string setActivcPowerLimitValue)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        Windfarm wf = null;
-        List<Turbine> listTurbine=null;
-        public void Init(Windfarm wf)
-        {
-            this.wf = wf;
-            listTurbine = new List<Turbine>();
-        
-        }
+       
     }
 }

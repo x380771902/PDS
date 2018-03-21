@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace 风电场功率调度程序.UI
+namespace 风电场功率调度程序
 {
     public partial class Login : Form
     {
@@ -22,11 +22,15 @@ namespace 风电场功率调度程序.UI
         {
 
               f = new MainForm();
+            this.Hide();
+            f.ShowDialog();
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            f.Dispose();
+            if(f != null)
+            { f.Dispose(); } 
             GC.Collect();
             this.Close();
             
