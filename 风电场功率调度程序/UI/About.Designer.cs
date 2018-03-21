@@ -110,7 +110,7 @@
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(271, 16);
             this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = "版权：湘电风能有限公司";
+            this.labelCopyright.Text = "版权：";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCompanyName
@@ -122,7 +122,7 @@
             this.labelCompanyName.Name = "labelCompanyName";
             this.labelCompanyName.Size = new System.Drawing.Size(271, 16);
             this.labelCompanyName.TabIndex = 22;
-            this.labelCompanyName.Text = "公司名称:湘电风能有限公司";
+            this.labelCompanyName.Text = "公司名称:";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxDescription
@@ -137,7 +137,6 @@
             this.textBoxDescription.Size = new System.Drawing.Size(271, 116);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "网址 www.xemc-wind.cn";
             // 
             // okButton
             // 
