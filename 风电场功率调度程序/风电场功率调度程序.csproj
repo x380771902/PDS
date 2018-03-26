@@ -43,7 +43,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>\\10.128.2.1\Desktop\server\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -94,7 +94,14 @@
     <Compile Include="Model\IDeviceTag.cs" />
     <Compile Include="Model\PowerCurve.cs" />
     <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\WindFarmMessage.cs" />
     <Compile Include="Mysql\MysqlDBHelper.cs" />
+    <Compile Include="UIControl\MessageBullet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIControl\MessageBullet.Designer.cs">
+      <DependentUpon>MessageBullet.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +113,12 @@
     </Compile>
     <Compile Include="UI\Chart.Designer.cs">
       <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommandListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommandListForm.Designer.cs">
+      <DependentUpon>CommandListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ControlStrategyManageForm.cs">
       <SubType>Form</SubType>
@@ -151,11 +164,17 @@
     </Compile>
     <Compile Include="Config\WindFarm_ConfigManager.cs" />
     <Compile Include="Model\User.cs" />
+    <EmbeddedResource Include="UIControl\MessageBullet.resx">
+      <DependentUpon>MessageBullet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Chart.resx">
       <DependentUpon>Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CommandListForm.resx">
+      <DependentUpon>CommandListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ControlStrategyManageForm.resx">
       <DependentUpon>ControlStrategyManageForm.cs</DependentUpon>
@@ -185,6 +204,73 @@
     <EmbeddedResource Include="UI\RealtimeDateVisual.resx">
       <DependentUpon>RealtimeDateVisual.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\Skins\DiamondBlue.ssk" />
+    <None Include="bin\Debug\Skins\DiamondGreen.ssk" />
+    <None Include="bin\Debug\Skins\DiamondOlive.ssk" />
+    <None Include="bin\Debug\Skins\DiamondPurple.ssk" />
+    <None Include="bin\Debug\Skins\DiamondRed.ssk" />
+    <None Include="bin\Debug\Skins\Eighteen.ssk" />
+    <None Include="bin\Debug\Skins\EighteenColor1.ssk" />
+    <None Include="bin\Debug\Skins\EighteenColor2.ssk" />
+    <None Include="bin\Debug\Skins\Emerald.ssk" />
+    <None Include="bin\Debug\Skins\EmeraldColor1.ssk" />
+    <None Include="bin\Debug\Skins\EmeraldColor2.ssk" />
+    <None Include="bin\Debug\Skins\EmeraldColor3.ssk" />
+    <None Include="bin\Debug\Skins\GlassBrown.ssk" />
+    <None Include="bin\Debug\Skins\GlassGreen.ssk" />
+    <None Include="bin\Debug\Skins\GlassOrange.ssk" />
+    <None Include="bin\Debug\Skins\Longhorn.ssk" />
+    <None Include="bin\Debug\Skins\MacOS.ssk" />
+    <None Include="bin\Debug\Skins\Midsummer.ssk" />
+    <None Include="bin\Debug\Skins\MidsummerColor1.ssk" />
+    <None Include="bin\Debug\Skins\MidsummerColor2.ssk" />
+    <None Include="bin\Debug\Skins\MidsummerColor3.ssk" />
+    <None Include="bin\Debug\Skins\mp10.ssk" />
+    <None Include="bin\Debug\Skins\mp10green.ssk" />
+    <None Include="bin\Debug\Skins\mp10maroon.ssk" />
+    <None Include="bin\Debug\Skins\mp10mulberry.ssk" />
+    <None Include="bin\Debug\Skins\mp10pink.ssk" />
+    <None Include="bin\Debug\Skins\mp10purple.ssk" />
+    <None Include="bin\Debug\Skins\MSN.ssk" />
+    <None Include="bin\Debug\Skins\office2007.ssk" />
+    <None Include="bin\Debug\Skins\OneBlue.ssk" />
+    <None Include="bin\Debug\Skins\OneCyan.ssk" />
+    <None Include="bin\Debug\Skins\OneGreen.ssk" />
+    <None Include="bin\Debug\Skins\OneOrange.ssk" />
+    <None Include="bin\Debug\Skins\Page.ssk" />
+    <None Include="bin\Debug\Skins\PageColor1.ssk" />
+    <None Include="bin\Debug\Skins\PageColor2.ssk" />
+    <None Include="bin\Debug\Skins\RealOne.ssk" />
+    <None Include="bin\Debug\Skins\Silver.ssk" />
+    <None Include="bin\Debug\Skins\SilverColor1.ssk" />
+    <None Include="bin\Debug\Skins\SilverColor2.ssk" />
+    <None Include="bin\Debug\Skins\SportsBlack.ssk" />
+    <None Include="bin\Debug\Skins\SportsBlue.ssk" />
+    <None Include="bin\Debug\Skins\SportsCyan.ssk" />
+    <None Include="bin\Debug\Skins\SportsGreen.ssk" />
+    <None Include="bin\Debug\Skins\SportsOrange.ssk" />
+    <None Include="bin\Debug\Skins\SteelBlack.ssk" />
+    <None Include="bin\Debug\Skins\SteelBlue.ssk" />
+    <None Include="bin\Debug\Skins\vista1.ssk" />
+    <None Include="bin\Debug\Skins\vista1_green.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color1.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color2.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color3.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color4.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color5.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color6.ssk" />
+    <None Include="bin\Debug\Skins\Vista2_color7.ssk" />
+    <None Include="bin\Debug\Skins\Warm.ssk" />
+    <None Include="bin\Debug\Skins\WarmColor1.ssk" />
+    <None Include="bin\Debug\Skins\WarmColor2.ssk" />
+    <None Include="bin\Debug\Skins\WarmColor3.ssk" />
+    <None Include="bin\Debug\Skins\Wave.ssk" />
+    <None Include="bin\Debug\Skins\WaveColor1.ssk" />
+    <None Include="bin\Debug\Skins\WaveColor2.ssk" />
+    <None Include="bin\Debug\Skins\XPBlue.ssk" />
+    <None Include="bin\Debug\Skins\XPGreen.ssk" />
+    <None Include="bin\Debug\Skins\XPOrange.ssk" />
+    <None Include="bin\Debug\Skins\XPSilver.ssk" />
     <None Include="bin\Debug\风电场功率调度程序.exe.config" />
     <None Include="bin\Debug\风电场功率调度程序.vshost.exe.config" />
     <None Include="bin\Debug\风电场功率调度程序.vshost.exe.manifest" />
@@ -225,12 +311,17 @@
     <None Include="Resources\bitbug_favicon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\IrisSkin4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\MySql.Data.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.dll" />
     <Content Include="bin\Debug\Newtonsoft.Json.xml" />
     <Content Include="bin\Debug\StackExchange.Redis.dll" />
     <Content Include="bin\Debug\StackExchange.Redis.xml" />
-    <Content Include="bin\Debug\WindFarm_Config.xml" />
+    <Content Include="bin\Debug\WindFarm_Config.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="bin\Debug\XEMC_WindFarm.xml" />
     <Content Include="bin\Debug\风电场功率调度程序.exe" />
     <Content Include="bin\Debug\风电场功率调度程序.pdb" />

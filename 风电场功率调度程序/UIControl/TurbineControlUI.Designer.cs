@@ -39,6 +39,11 @@
             this.p1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.labLimitActPower = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -54,6 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(94, 1);
             this.label2.Name = "label2";
@@ -126,9 +132,10 @@
             this.p1.BackColor = System.Drawing.Color.Green;
             this.p1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.p1.Location = new System.Drawing.Point(158, 3);
+            this.p1.Location = new System.Drawing.Point(161, 2);
+            this.p1.Margin = new System.Windows.Forms.Padding(1);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(26, 97);
+            this.p1.Size = new System.Drawing.Size(23, 97);
             this.p1.TabIndex = 9;
             // 
             // label9
@@ -151,11 +158,55 @@
             this.labLimitActPower.TabIndex = 10;
             this.labLimitActPower.Text = "未初始化";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Green;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel1.Location = new System.Drawing.Point(190, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(22, 17);
+            this.panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Green;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Location = new System.Drawing.Point(190, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(22, 17);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Green;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel3.Location = new System.Drawing.Point(-1, -1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(22, 17);
+            this.panel3.TabIndex = 12;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Green;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel4.Location = new System.Drawing.Point(190, 48);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(22, 17);
+            this.panel4.TabIndex = 13;
+            // 
             // TurbineControlUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.labLimitActPower);
             this.Controls.Add(this.label7);
@@ -168,9 +219,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.p1);
             this.Name = "TurbineControlUI";
-            this.Size = new System.Drawing.Size(188, 101);
+            this.Size = new System.Drawing.Size(215, 101);
             this.MouseLeave += new System.EventHandler(this.TurbineControlUI_MouseLeave);
             this.MouseHover += new System.EventHandler(this.TurbineControlUI_MouseHover);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +241,9 @@
         private System.Windows.Forms.Panel p1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labLimitActPower;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

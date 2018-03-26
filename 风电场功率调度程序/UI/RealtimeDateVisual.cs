@@ -15,7 +15,7 @@ namespace 风电场功率调度程序.UI
         public RealtimeDateVisual()
         {
             InitializeComponent();
-            RedisHelper redishelper = new RedisHelper(1, "127.0.0.1");
+           // RedisHelper redishelper = new RedisHelper(1);
             //redishelper.StringGet 
         }
     }

@@ -68,10 +68,8 @@ namespace 风电场功率调度程序
                 {
                     limitActivePower = MiniActivePowerSp;
                 }
-                else limitActivePower = value;
-
-                var a  =  SetTagValue( "PwrAtSp", limitActivePower.ToString());
-
+                else limitActivePower = value; 
+                var a  =  SetTagValue( "PwrAtSp", limitActivePower.ToString()); 
             }
         }
 
@@ -87,9 +85,7 @@ namespace 风电场功率调度程序
             limitedPowerRunning,
             limitedPowerStop,
             unknown
-        }
-
-
+        } 
 
         #region 属性
         /// <summary>
@@ -127,7 +123,7 @@ namespace 风电场功率调度程序
         {
             get
             {
-                return bool.Parse(GetTagValue("LocalOrRemote").ToString());
+                return  GetTagValue("LocalOrRemote") > 0d ? true:false  ;
             }
         }
 
@@ -265,16 +261,14 @@ namespace 风电场功率调度程序
         public bool AutoStart
         {
             get; set;
-        }
-
+        } 
         /// <summary>
         /// 自动开机是否启用
         /// </summary>
         public bool AutoStop
         {
             get; set;
-        }
-
+        } 
         /// <summary>
         /// 限定幅值大小
         /// </summary>
@@ -282,16 +276,14 @@ namespace 风电场功率调度程序
         public int ChangeLimit
         {
             get; set;
-        }
-
+        } 
         /// <summary>
         /// 是否为样板机
         /// </summary>
         public bool IsSample
         {
             get; set;
-        } 
-       
+        }  
         /// <summary>
         /// 最小功率因素
         /// </summary>
@@ -299,8 +291,7 @@ namespace 风电场功率调度程序
         {
             get;
             set;
-        }
-
+        } 
         /// <summary>
         /// 标记集合
         /// </summary>
@@ -327,19 +318,16 @@ namespace 风电场功率调度程序
             {
                 ;
             }
-        }
-
+        } 
         #endregion
-         
-
+          
         #region 方法
 
         /// <summary>
         /// 启动风机
         /// </summary>
         public void startTurbuie()
-        {
-           
+        { 
         }
 
         /// <summary>
@@ -376,7 +364,7 @@ namespace 风电场功率调度程序
                 {
                      DeviceTagList.TryGetValue(PropetyKey, out tagid); 
                     sqlstring = string.Format( "INSERT INTO writecommand (Tagid ,TagValue,TagTimestamp,SendResult)" +
-                  " VALUES( '{0}', '{1}', '{2}', '{3}')", tagid, Value, DateTime.Now.ToString(),"N"); 
+                  " VALUES( '{0}', '{1}', '{2}', '{3}')", tagid, Value, DateTime.UtcNow.ToString(),"N"); 
                 }
                 return sqlstring;
             }
@@ -440,12 +428,11 @@ namespace 风电场功率调度程序
                 }
                 return 0.0d;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return 0.0d;
-            }
-
+            } 
         }
 
         /// <summary>
@@ -467,7 +454,7 @@ namespace 风电场功率调度程序
                 else
                     return false;
             }
-            catch (Exception  )
+            catch (Exception  ex )
             {
                 return false;
             }
@@ -492,8 +479,7 @@ namespace 风电场功率调度程序
                 return (float)GetTagValue("CnvGdPwrAt");
             }
         }
-
-
+         
         /// <summary>
         /// 当前有功功率
         /// </summary>
@@ -502,11 +488,8 @@ namespace 风电场功率调度程序
             get
             {
                 return   (int)GetTagValue("CnvGdPwrRt");  
-            }
-
+            } 
         }
-        #endregion
-
-
+        #endregion 
     }
 }

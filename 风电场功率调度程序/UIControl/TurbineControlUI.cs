@@ -12,18 +12,18 @@ namespace 风电场功率调度程序
 {
     public partial class TurbineControlUI : UserControl
     {
-       
+
         public TurbineControlUI(Turbine t)
         {
-          
+
             InitializeComponent();
             Ts = t.RunState;
-            this.label2.Text = t.TurbineID.ToString();
+            this.label2.Text = t.TurbineName.ToString();
             this.WSpeedNac = t.WSpeedNac;
             this.activePower = t.ActivePower;
             this.activePowerLimit = (int)t.LimitActivePower;
-            this.p1.Height = (int)(ActivePower/2000* Height);
-         
+            this.p1.Height = (int)(ActivePower / 2000 * this.Height);
+
         }
 
         public TurbineControlUI()
@@ -37,7 +37,7 @@ namespace 风电场功率调度程序
         private float wSpeedNac;
         private float activePower;
         private int activePowerLimit;
-        private DateTime lastStopDatetime ;
+        private DateTime lastStopDatetime;
 
         public Turbine.turbineStatu Ts
         {
@@ -78,15 +78,15 @@ namespace 风电场功率调度程序
                         break;
                 }
             }
-        } 
+        }
 
         public float WSpeedNac
         {
-            get { return this.wSpeedNac; } 
+            get { return this.wSpeedNac; }
             set
             {
                 this.wSpeedNac = value;
-                this.label6.Text = Math.Round(wSpeedNac, 1).ToString() + "m/s"; 
+                this.label6.Text = Math.Round(wSpeedNac, 1).ToString() + "m/s";
             }
         }
 
@@ -95,11 +95,11 @@ namespace 风电场功率调度程序
             get
             {
                 return activePower;
-            }  
+            }
             set
             {
-                this.activePower = value ; 
-                this.label8.Text = Math.Round(activePower,2).ToString()+ "kW";
+                this.activePower = value;
+                this.label8.Text = Math.Round(activePower, 2).ToString() + "kW";
                 this.p1.Height = (int)(ActivePower / 2000 * this.Height);
             }
         }
@@ -108,18 +108,18 @@ namespace 风电场功率调度程序
         {
             get
             {
-               return  activePowerLimit;
-            } 
+                return activePowerLimit;
+            }
             set
             {
-                activePowerLimit = value; 
-                this.labLimitActPower.Text = activePowerLimit.ToString() + " kW"; 
+                activePowerLimit = value;
+                this.labLimitActPower.Text = activePowerLimit.ToString() + " kW";
             }
         }
 
         public DateTime LastDateTime
         {
-            get { return lastStopDatetime; } 
+            get { return lastStopDatetime; }
             set
             {
                 lastStopDatetime = value;
@@ -134,6 +134,24 @@ namespace 风电场功率调度程序
         private void TurbineControlUI_MouseLeave(object sender, EventArgs e)
         {
             this.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private bool localOrRemote;
+        public bool LocalOrRemote
+        { 
+            set
+            { 
+                if (value)
+                {
+                   this.panel3.BackColor = Color.YellowGreen;
+                   
+                }
+                else
+                { 
+                   this.panel3.BackColor = Color.Green;
+                }
+                localOrRemote = value;
+            }
         }
     }
 }

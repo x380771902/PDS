@@ -12,16 +12,18 @@ namespace 风电场功率调度程序
     {
 
 
-        //引导数据库连接数据库调用Web.Config文件    
+        //引导数据库连接数据库调用Web.Config文件     
         private static MySqlConnection connection;
+        private static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MysqleHosts"].ConnectionString;
         //创建连接
         public static MySqlConnection Connection
         {
             get
             {
-                MySqlConnection myConn =
-                    new MySqlConnection("server=localhost;user id=root;password=root;database=xemc_windfarm;CharSet=utf8;");
-                string connectionString = myConn.ConnectionString;
+               /// MySqlConnection myConn =  new MySqlConnection("server=10.128.2.1;user id=root;password=root;database=xemc_windfarm;CharSet=utf8;");
+
+                MySqlConnection myConn = new MySqlConnection(connectionString);
+               // string connectionString = myConn.ConnectionString;
                 if (connection == null)
                 {
                     connection = new MySqlConnection(connectionString);

@@ -20,7 +20,6 @@ namespace 风电场功率调度程序
             LoadConfigFile();
         }
 
-
         public WindFarm_Manager(string path) { }
 
         public Windfarm ConfigWindfarm { get; set; }
@@ -30,28 +29,19 @@ namespace 风电场功率调度程序
         private bool GetTagList()
         {
             try
-            { 
-                
-                if (TagList!=null)
-                {
-                   
-                } 
+            {
                 TagList = rh.StringGet<Dictionary<string, Tag>>("RealTimeData:");
                 foreach (var item in this.ConfigWindfarm.ListTurbines)
                 {
                     item.WindfarmTagList = TagList;
-                }
-
+                } 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
                 throw;
-            } 
-            finally
-            {   
-            } 
+            }
         }
 
         /// <summary>
@@ -68,13 +58,11 @@ namespace 风电场功率调度程序
                 //加载风场配置信息
 
                 //连接实时数据驱动
-                rh = new RedisHelper(1, "127.0.0.1");
-
+                rh = new RedisHelper(1);
                 load_Windfarm(doc);
                 //加载设备信息
                 load_Devices(doc);
-
-                
+                 
                 //初始化数据更新计时器
                 InitTimer();
                 return true;
@@ -98,6 +86,11 @@ namespace 风电场功率调度程序
              ConfigWindfarm.ActivePower1MinitueMaxRate = float.Parse(windfarminfonode.SelectSingleNode("ActivePower1MinitueMaxRate").InnerText);
              ConfigWindfarm.ActivePower10MinitueMaxRate = float.Parse(windfarminfonode.SelectSingleNode("ActivePower10MinitueMaxRate").InnerText);          
              ConfigWindfarm.SettingCycle = int.Parse(windfarminfonode.SelectSingleNode("SettingCycle").InnerText.Trim());
+             ConfigWindfarm.IsIgnoreSample = bool.Parse(windfarminfonode.SelectSingleNode("IsIgnoreSample").InnerText.Trim());
+             ConfigWindfarm.EnableAutoStartTurbine = bool.Parse(windfarminfonode.SelectSingleNode("EnableAutoStartTurbine").InnerText.Trim());
+             ConfigWindfarm.EnableAutoStopTurbine = bool.Parse(windfarminfonode.SelectSingleNode("EnableAutoStopTurbine").InnerText.Trim()); 
+             ConfigWindfarm.EnableLimitActivePowerSpeed = bool.Parse(windfarminfonode.SelectSingleNode("EnableLimitActivePowerSpeed").InnerText.Trim());
+             ConfigWindfarm.ControlStrategy = int.Parse(windfarminfonode.SelectSingleNode("ControlStrategy").InnerText.Trim());
         }
 
         /// <summary>
@@ -112,7 +105,11 @@ namespace 风电场功率调度程序
                 {
                     t = new Turbine(Int32.Parse(i.Attributes.GetNamedItem("TurbineID").Value));
 
+                   
                     t.Enable = true;
+
+                    t.TurbineName = i.Attributes.GetNamedItem("DeviceName").Value;
+                    t.TurbineID =Int32.Parse(i.Attributes.GetNamedItem("TurbineID").Value);
                     t.DeviceType = i.Attributes.GetNamedItem("DeviceType").Value;
 
                     t.MaxActivePowerSp = Int32.Parse(i.Attributes.GetNamedItem("MaxActivePowerSp").Value);
@@ -141,7 +138,6 @@ namespace 风电场功率调度程序
                     } 
                }
                 this.ConfigWindfarm.ListTurbines.Add(t);
-
             }
         }
 
@@ -150,9 +146,7 @@ namespace 风电场功率调度程序
             this.timer_GetTagList = new Timer();
             this.timer_GetTagList.Interval = 1000;
             this.timer_GetTagList.Elapsed += Timer_GetTagList_Elapsed;
-            this.timer_GetTagList.Enabled = true;
-          
-          
+            this.timer_GetTagList.Enabled = true; 
         }
 
         private void Timer_GetTagList_Elapsed(object sender, ElapsedEventArgs e)

@@ -30,7 +30,7 @@ namespace 风电场功率调度程序
         {
             try
             {
-                redisHelper = new RedisHelper(1, "127.0.0.1");
+                redisHelper = new RedisHelper(1);
                 //opchelper = new OPCHelper("10.128.2.1", "CSharpServer",200);
               
                 itemList = c.ItemList.ToArray();

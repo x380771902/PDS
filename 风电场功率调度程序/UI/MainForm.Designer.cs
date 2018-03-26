@@ -59,12 +59,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.labTheoreticalPower = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbxStartList = new System.Windows.Forms.ListBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnSetActivePowerLimitValue = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
@@ -138,6 +138,7 @@
             this.编辑控制策略ToolStripMenuItem.Name = "编辑控制策略ToolStripMenuItem";
             this.编辑控制策略ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.编辑控制策略ToolStripMenuItem.Text = "编辑控制策略(&P)";
+            this.编辑控制策略ToolStripMenuItem.Click += new System.EventHandler(this.编辑控制策略ToolStripMenuItem_Click);
             // 
             // 系统报表ToolStripMenuItem
             // 
@@ -153,6 +154,7 @@
             this.指令记录报表ToolStripMenuItem.Name = "指令记录报表ToolStripMenuItem";
             this.指令记录报表ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.指令记录报表ToolStripMenuItem.Text = "指令记录报表";
+            this.指令记录报表ToolStripMenuItem.Click += new System.EventHandler(this.指令记录报表ToolStripMenuItem_Click);
             // 
             // 风场功率调度报表ToolStripMenuItem
             // 
@@ -173,26 +175,26 @@
             // 帮助文档ToolStripMenuItem
             // 
             this.帮助文档ToolStripMenuItem.Name = "帮助文档ToolStripMenuItem";
-            this.帮助文档ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.帮助文档ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.帮助文档ToolStripMenuItem.Text = "帮助文档(&V)";
             // 
             // 产品注册ToolStripMenuItem
             // 
             this.产品注册ToolStripMenuItem.Name = "产品注册ToolStripMenuItem";
-            this.产品注册ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.产品注册ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.产品注册ToolStripMenuItem.Text = "产品注册(&T)";
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.关于ToolStripMenuItem.Text = "关于(&A)";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
+            this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
@@ -244,9 +246,9 @@
             // 
             this.btnEnableLimitActivePower.Location = new System.Drawing.Point(7, 205);
             this.btnEnableLimitActivePower.Name = "btnEnableLimitActivePower";
-            this.btnEnableLimitActivePower.Size = new System.Drawing.Size(75, 23);
+            this.btnEnableLimitActivePower.Size = new System.Drawing.Size(88, 23);
             this.btnEnableLimitActivePower.TabIndex = 12;
-            this.btnEnableLimitActivePower.Text = "设置限定值";
+            this.btnEnableLimitActivePower.Text = "启用功率调度";
             this.btnEnableLimitActivePower.UseVisualStyleBackColor = true;
             this.btnEnableLimitActivePower.Click += new System.EventHandler(this.btnEnableLimitActivePower_Click);
             // 
@@ -278,17 +280,19 @@
             // 
             // btnDisableLimitActivePower
             // 
+            this.btnDisableLimitActivePower.Enabled = false;
             this.btnDisableLimitActivePower.Location = new System.Drawing.Point(7, 234);
             this.btnDisableLimitActivePower.Name = "btnDisableLimitActivePower";
-            this.btnDisableLimitActivePower.Size = new System.Drawing.Size(75, 23);
+            this.btnDisableLimitActivePower.Size = new System.Drawing.Size(88, 23);
             this.btnDisableLimitActivePower.TabIndex = 15;
-            this.btnDisableLimitActivePower.Text = "解除限定值";
+            this.btnDisableLimitActivePower.Text = "解除功率调度";
             this.btnDisableLimitActivePower.UseVisualStyleBackColor = true;
             this.btnDisableLimitActivePower.Click += new System.EventHandler(this.btnDisableLimitActivePower_Click);
             // 
             // lbxStopList
             // 
-            this.lbxStopList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbxStopList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbxStopList.FormattingEnabled = true;
             this.lbxStopList.ItemHeight = 12;
             this.lbxStopList.Location = new System.Drawing.Point(8, 544);
@@ -298,7 +302,8 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(10, 316);
             this.label7.Name = "label7";
@@ -308,7 +313,8 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(5, 522);
             this.label8.Name = "label8";
@@ -333,6 +339,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(65, 17);
             this.toolStripStatusLabel1.Text = "系统时间：";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(29, 17);
+            this.toolStripStatusLabel2.Text = "时间";
+            // 
             // labTheoreticalPower
             // 
             this.labTheoreticalPower.AutoSize = true;
@@ -353,7 +365,8 @@
             // 
             // lbxStartList
             // 
-            this.lbxStartList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbxStartList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbxStartList.FormattingEnabled = true;
             this.lbxStartList.ItemHeight = 12;
             this.lbxStartList.Location = new System.Drawing.Point(8, 341);
@@ -367,6 +380,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(128, 544);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(966, 181);
             this.richTextBox1.TabIndex = 24;
             this.richTextBox1.Text = "";
@@ -382,17 +396,12 @@
             this.label2.TabIndex = 25;
             this.label2.Text = "日志消息：";
             // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(29, 17);
-            this.toolStripStatusLabel2.Text = "时间";
-            // 
             // btnSetActivePowerLimitValue
             // 
+            this.btnSetActivePowerLimitValue.Enabled = false;
             this.btnSetActivePowerLimitValue.Location = new System.Drawing.Point(8, 164);
             this.btnSetActivePowerLimitValue.Name = "btnSetActivePowerLimitValue";
-            this.btnSetActivePowerLimitValue.Size = new System.Drawing.Size(75, 23);
+            this.btnSetActivePowerLimitValue.Size = new System.Drawing.Size(87, 23);
             this.btnSetActivePowerLimitValue.TabIndex = 26;
             this.btnSetActivePowerLimitValue.Text = "修改限定值";
             this.btnSetActivePowerLimitValue.UseVisualStyleBackColor = true;
