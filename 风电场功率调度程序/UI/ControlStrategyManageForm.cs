@@ -15,6 +15,7 @@ namespace 风电场功率调度程序
         public ControlStrategyManageForm()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.bitbug_favicon;
         }
 
 
