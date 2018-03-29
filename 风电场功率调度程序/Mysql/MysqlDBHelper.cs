@@ -20,9 +20,9 @@ namespace 风电场功率调度程序
         {
             get
             {
-                /// MySqlConnection myConn =  new MySqlConnection("server=10.128.2.1;user id=root;password=root;database=xemc_windfarm;CharSet=utf8;");
- 
-               
+               /// MySqlConnection myConn =  new MySqlConnection("server=10.128.2.1;user id=root;password=root;database=xemc_windfarm;CharSet=utf8;");
+
+                MySqlConnection myConn = new MySqlConnection(connectionString);
                // string connectionString = myConn.ConnectionString;
                 if (connection == null)
                 {

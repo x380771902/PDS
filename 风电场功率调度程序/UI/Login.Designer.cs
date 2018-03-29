@@ -64,7 +64,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(209, 21);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "admin";
             // 
             // textBox2
             // 
@@ -72,7 +71,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(209, 21);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "admin";
             this.textBox2.UseSystemPasswordChar = true;
             // 
             // LabUserName
@@ -120,9 +118,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "登录";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

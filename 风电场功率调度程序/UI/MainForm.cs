@@ -16,22 +16,14 @@ namespace 风电场功率调度程序
 
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             initData();
-        }
-
-
-        public MainForm(User user)
-        {
-            InitializeComponent();
-            initData();
-            CurrendUser = user;
         }
 
         private Windfarm wf = null;
         private Random rd = new Random();
         private Config config = null;
-        private User CurrendUser = null;
+        private User CurrendUser = new User();
         WindFarm_Manager WFM = null;
         BindingSource bs1 = null;
         BindingSource bs2 = null;
@@ -56,7 +48,7 @@ namespace 风电场功率调度程序
             SetLimitActivePowerValueTime.Interval = wf.SettingCycle;
             SetLimitActivePowerValueTime.Elapsed += SetLimitActivePowerValueTime_Elapsed;
             LimitActivePower = (int)this.nudLimit.Value;
-
+            
             BWMain.DoWork += BWMain_DoWork;
             BWMain.ProgressChanged += BWMain_ProgressChanged;
             BWMain.WorkerReportsProgress = true;
@@ -64,7 +56,7 @@ namespace 风电场功率调度程序
         }
 
         private void BWMain_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
+        { 
             for (int i = 0; i < wf.ListTurbines.Count; i++)
             {
                 var a = FLP1.Controls[i] as TurbineControlUI;
@@ -74,27 +66,14 @@ namespace 风电场功率调度程序
                 a.ActivePowerLimitValue = (int)wf.ListTurbines[i].LimitActivePower;
                 a.LastDateTime = wf.ListTurbines[i].LastDateTime;
                 a.LocalOrRemote = wf.ListTurbines[i].LocalOrRemote;
-                a.IsSample = wf.ListTurbines[i].IsSample;
-                a.ConnectState = wf.ListTurbines[i].ConnectState;
-                a.PwrAtEnable = wf.ListTurbines[i].PwrAtEnable;
-                a.PwrRtEnable = wf.ListTurbines[i].PwrRtEnable;
             }
             this.labTotalActivePower.Text = wf.TatolActivePower.ToString() + " kW";
             this.labAws.Text = Math.Round(wf.AvgWindSpeed, 1).ToString() + " m/s ";
             this.labTheoreticalPower.Text = wf.TheoreticalPower.ToString() + " kW";
-
-            this.chart1.Series[0].Points.AddXY(DateTime.Now.ToLongTimeString(), wf.TatolActivePower);
-            this.chart1.Series[1].Points.AddXY(DateTime.Now.ToLongTimeString(), wf.LimitActivePower); 
-            if (this.chart1.Series[0].Points.Count > 20)
-            {
-                this.chart1.Series[0].Points.RemoveAt(0);
-                this.chart1.Series[1].Points.RemoveAt(0); 
-
-            }
         }
 
         private void BWMain_DoWork(object sender, DoWorkEventArgs e)
-        {
+        { 
             try
             {
                 int i = 0;
@@ -104,10 +83,10 @@ namespace 风电场功率调度程序
                     if (i == 10)
                         i = 0;
                     bw.ReportProgress(++i);
-                    Thread.Sleep(2000);
+                    Thread.Sleep(4000);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex )
             {
 
                 throw ex;
@@ -116,16 +95,16 @@ namespace 风电场功率调度程序
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-
+             
+            
         }
 
 
-        private void setMessage(string MessageText, RichTextBox mb, User user)
-        {
+        private void setMessage(string MessageText, RichTextBox mb ,User user )
+        { 
 
-
-            mb.Text = mb.Text.Insert(0, "用户：" + user.UserName + " 时间： " + DateTime.Now + "  " + MessageText + Environment.NewLine);
+            
+           mb.Text =   mb.Text.Insert(0, "用户：" + user.UserName + " 时间： " + DateTime.Now + "  " + MessageText + Environment.NewLine);
             mb.Update();
         }
 
@@ -160,10 +139,10 @@ namespace 风电场功率调度程序
                 this.btnDisableLimitActivePower.Enabled = true;
                 btnSetActivePowerLimitValue.Enabled = true;
                 setMessage("启用功率系统有功控制", this.richTextBox1, CurrendUser);
-                wf.PwrAtEnable = true;
             }
+             
         }
-
+        
         private void btnDisableLimitActivePower_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("解除功率系统有功控制?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -174,36 +153,35 @@ namespace 风电场功率调度程序
                 this.btnEnableLimitActivePower.Enabled = true;
                 this.btnDisableLimitActivePower.Enabled = false;
                 btnSetActivePowerLimitValue.Enabled = false;
-                setMessage("解除功率系统有功控制", this.richTextBox1, CurrendUser);
-                wf.PwrAtEnable = false;
+                setMessage("解除功率系统有功控制", this.richTextBox1, CurrendUser);　
             }
-
+            　　
         }
 
         List<MessageBullet> listmb = new List<MessageBullet>();
         private void btnSetActivePowerLimitValue_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("是否修改限定值为:" + this.nudLimit.Value.ToString() + "?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-            {
+            if (MessageBox.Show("是否修改限定值为:"+ this.nudLimit.Value.ToString() + "?", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {　
                 setMessage("限定值已被修改为：" + this.nudLimit.Value.ToString() + "kW", this.richTextBox1, CurrendUser);
-                this.LimitActivePower = (int)this.nudLimit.Value;
-            }
+                this.LimitActivePower = (int)this.nudLimit.Value;　
+            } 
         }
         private void SetLimitActivePowerValueTime_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             wf.LimitActivePower = LimitActivePower;
-        }
+        } 
 
-        private void startOrStopturbine()
-        {
+        private  void startOrStopturbine()
+        { 
             if (wf.LimitActivePower > wf.TatolActivePower && Math.Abs((wf.LimitActivePower - wf.TatolActivePower)) >= 200)
             {
-                //  wf.StartLimitTurbine(); 
-
+              //  wf.StartLimitTurbine(); 
+              
             }
-            if (wf.LimitActivePower < wf.TatolActivePower && Math.Abs((wf.LimitActivePower - wf.TatolActivePower)) >= 200)
+            if (wf.LimitActivePower < wf.TatolActivePower && Math.Abs((wf.LimitActivePower - wf.TatolActivePower))>= 200)
             {
-                //  wf.StopLimitTurbine();  
+              //  wf.StopLimitTurbine();  
             }
 
             bs1 = new BindingSource();
@@ -217,7 +195,7 @@ namespace 风电场功率调度程序
             this.lbxStopList.DataSource = bs2;
             this.lbxStopList.DisplayMember = "TutbineID";
             this.lbxStopList.ValueMember = "TutbineID";
-
+            
         }
 
 
@@ -225,13 +203,13 @@ namespace 风电场功率调度程序
         private void 实时图ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Chart c = new Chart(wf);
-            c.ShowDialog();
+            c.Show();
         }
 
         private void oPC通讯测试ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClientTest ct = new ClientTest(config);
-            ct.ShowDialog();
+            ct.Show();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -244,7 +222,7 @@ namespace 风电场功率调度程序
             else
             {
                 e.Cancel = true;
-            }
+            } 
         }
 
 
@@ -261,16 +239,15 @@ namespace 风电场功率调度程序
             setMessage("打开控制策略管理面板", this.richTextBox1, CurrendUser);
             ControlStrategyManageForm csmf = new ControlStrategyManageForm(wf);
             csmf.ShowDialog();
-
+           
         }
 
         private void 指令记录报表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CommandListForm clfp = new CommandListForm();
-            clfp.ShowDialog();
-        }
+            CommandListForm clfp = new CommandListForm(); 
+            clfp.Show();
 
-        
+                }
     }
     #endregion
 

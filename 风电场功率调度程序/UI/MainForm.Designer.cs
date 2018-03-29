@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.FLP1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,12 +66,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSetActivePowerLimitValue = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // FLP1
@@ -83,9 +77,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FLP1.AutoScroll = true;
-            this.FLP1.Location = new System.Drawing.Point(171, 30);
+            this.FLP1.Location = new System.Drawing.Point(128, 30);
             this.FLP1.Name = "FLP1";
-            this.FLP1.Size = new System.Drawing.Size(923, 483);
+            this.FLP1.Size = new System.Drawing.Size(966, 483);
             this.FLP1.TabIndex = 0;
             // 
             // menuStrip1
@@ -206,7 +200,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 80);
+            this.label1.Location = new System.Drawing.Point(17, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
@@ -233,7 +227,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 33);
+            this.label5.Location = new System.Drawing.Point(6, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 8;
@@ -242,7 +236,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 112);
+            this.label4.Location = new System.Drawing.Point(6, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 11;
@@ -250,7 +244,7 @@
             // 
             // btnEnableLimitActivePower
             // 
-            this.btnEnableLimitActivePower.Location = new System.Drawing.Point(8, 208);
+            this.btnEnableLimitActivePower.Location = new System.Drawing.Point(7, 205);
             this.btnEnableLimitActivePower.Name = "btnEnableLimitActivePower";
             this.btnEnableLimitActivePower.Size = new System.Drawing.Size(88, 23);
             this.btnEnableLimitActivePower.TabIndex = 12;
@@ -261,7 +255,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 140);
+            this.label6.Location = new System.Drawing.Point(99, 140);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 12);
             this.label6.TabIndex = 13;
@@ -269,11 +263,6 @@
             // 
             // nudLimit
             // 
-            this.nudLimit.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.nudLimit.Location = new System.Drawing.Point(8, 134);
             this.nudLimit.Maximum = new decimal(new int[] {
             50000,
@@ -292,7 +281,7 @@
             // btnDisableLimitActivePower
             // 
             this.btnDisableLimitActivePower.Enabled = false;
-            this.btnDisableLimitActivePower.Location = new System.Drawing.Point(8, 237);
+            this.btnDisableLimitActivePower.Location = new System.Drawing.Point(7, 234);
             this.btnDisableLimitActivePower.Name = "btnDisableLimitActivePower";
             this.btnDisableLimitActivePower.Size = new System.Drawing.Size(88, 23);
             this.btnDisableLimitActivePower.TabIndex = 15;
@@ -308,13 +297,15 @@
             this.lbxStopList.ItemHeight = 12;
             this.lbxStopList.Location = new System.Drawing.Point(8, 544);
             this.lbxStopList.Name = "lbxStopList";
-            this.lbxStopList.Size = new System.Drawing.Size(137, 184);
+            this.lbxStopList.Size = new System.Drawing.Size(87, 184);
             this.lbxStopList.TabIndex = 17;
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 316);
+            this.label7.Location = new System.Drawing.Point(10, 316);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 18;
@@ -322,6 +313,8 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(5, 522);
             this.label8.Name = "label8";
@@ -364,7 +357,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 55);
+            this.label10.Location = new System.Drawing.Point(5, 55);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 21;
@@ -372,21 +365,23 @@
             // 
             // lbxStartList
             // 
+            this.lbxStartList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbxStartList.FormattingEnabled = true;
             this.lbxStartList.ItemHeight = 12;
             this.lbxStartList.Location = new System.Drawing.Point(8, 341);
             this.lbxStartList.Name = "lbxStartList";
-            this.lbxStartList.Size = new System.Drawing.Size(137, 172);
+            this.lbxStartList.Size = new System.Drawing.Size(87, 172);
             this.lbxStartList.TabIndex = 23;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(765, 544);
+            this.richTextBox1.Location = new System.Drawing.Point(128, 544);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(329, 174);
+            this.richTextBox1.Size = new System.Drawing.Size(966, 181);
             this.richTextBox1.TabIndex = 24;
             this.richTextBox1.Text = "";
             // 
@@ -395,7 +390,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(763, 522);
+            this.label2.Location = new System.Drawing.Point(126, 522);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 25;
@@ -404,7 +399,7 @@
             // btnSetActivePowerLimitValue
             // 
             this.btnSetActivePowerLimitValue.Enabled = false;
-            this.btnSetActivePowerLimitValue.Location = new System.Drawing.Point(8, 161);
+            this.btnSetActivePowerLimitValue.Location = new System.Drawing.Point(8, 164);
             this.btnSetActivePowerLimitValue.Name = "btnSetActivePowerLimitValue";
             this.btnSetActivePowerLimitValue.Size = new System.Drawing.Size(87, 23);
             this.btnSetActivePowerLimitValue.TabIndex = 26;
@@ -412,81 +407,11 @@
             this.btnSetActivePowerLimitValue.UseVisualStyleBackColor = true;
             this.btnSetActivePowerLimitValue.Click += new System.EventHandler(this.btnSetActivePowerLimitValue_Click);
             // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chart1.BackColor = System.Drawing.Color.Transparent;
-            this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea4.AxisX.IsStartedFromZero = false;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea4.AxisX.MinorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
-            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45)));
-            chartArea4.AxisY.LabelStyle.Angle = -45;
-            chartArea4.AxisY.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea4.AxisY.Maximum = 50000D;
-            chartArea4.AxisY.Minimum = 0D;
-            chartArea4.AxisY2.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea4.BackColor = System.Drawing.Color.Black;
-            chartArea4.InnerPlotPosition.Auto = false;
-            chartArea4.InnerPlotPosition.Height = 76.67067F;
-            chartArea4.InnerPlotPosition.Width = 88.42284F;
-            chartArea4.InnerPlotPosition.X = 6F;
-            chartArea4.InnerPlotPosition.Y = 1F;
-            chartArea4.IsSameFontSizeForAllAxes = true;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 100F;
-            chartArea4.Position.Width = 100F;
-            this.chart1.ChartAreas.Add(chartArea4);
-            this.chart1.Location = new System.Drawing.Point(171, 542);
-            this.chart1.Name = "chart1";
-            series7.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkUpwardDiagonal;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series7.IsVisibleInLegend = false;
-            series7.IsXValueIndexed = true;
-            series7.LabelForeColor = System.Drawing.SystemColors.Control;
-            series7.Name = "实时功率";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.IsVisibleInLegend = false;
-            series8.LabelForeColor = System.Drawing.Color.White;
-            series8.Name = "限定功率";
-            series8.YValuesPerPoint = 2;
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
-            this.chart1.Size = new System.Drawing.Size(588, 211);
-            this.chart1.TabIndex = 27;
-            this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.实时图ToolStripMenuItem_Click);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(169, 522);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "实时曲线：";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 753);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSetActivePowerLimitValue);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox1);
@@ -496,6 +421,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbxStopList);
             this.Controls.Add(this.btnDisableLimitActivePower);
             this.Controls.Add(this.nudLimit);
             this.Controls.Add(this.label6);
@@ -507,8 +433,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FLP1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.lbxStopList);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "风电场功率调度程序";
@@ -519,7 +443,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,8 +487,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Button btnSetActivePowerLimitValue;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Label label3;
     }
 }
 
