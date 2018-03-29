@@ -110,6 +110,7 @@ namespace 风电场功率调度程序
             catch (Exception ex)
             {
 
+
                 throw ex;
             }
         }
