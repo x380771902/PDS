@@ -103,8 +103,8 @@ namespace 风电场功率调度程序
             }
             set
             {
-                if (value == this.limitActivePower)//重复值不处理
-                    return;
+                //if (value == this.limitActivePower)//重复值不处理
+                //    return;
                 var a = (float)value / GridCapacity;  //获取比例系数
                 if (value == this.GridCapacity)//设定值等于并网容量，全场风机给定可发有功最大值MaxActivePowerSp
                 {
@@ -265,8 +265,7 @@ namespace 风电场功率调度程序
         /// </summary>
         public int SettingCycle
         {
-            get;
-            set;
+            get; set;
         }
 
 
@@ -275,8 +274,7 @@ namespace 风电场功率调度程序
         /// </summary>
         public bool EnableAutoStopTurbine
         {
-            get;
-            set;
+            get; set;
         }
 
         /// <summary>
@@ -292,8 +290,7 @@ namespace 风电场功率调度程序
         /// </summary>
         public bool EnableLimitActivePowerSpeed
         {
-            get;
-            set; 
+            get;  set; 
         }
 
         /// <summary>
@@ -301,5 +298,55 @@ namespace 风电场功率调度程序
         /// </summary>
         public int ControlStrategy
         { get; set; }
+
+        private bool pwrAtEnable = false;
+     
+        /// <summary>
+        /// 全场有功使能信号
+        /// </summary>
+        public bool PwrAtEnable
+        {
+            get
+            {
+                return pwrAtEnable;
+            } 
+            set
+            {
+                pwrAtEnable = value;
+                foreach (var i in this.ListTurbines)
+                { 
+                    i.PwrAtEnable = value;
+                }
+            }
+        }
+
+        private bool pwrRtEnable = false;
+
+        /// <summary>
+        /// 全场无功使能信号
+        /// </summary>
+        public bool PwrRtEnable
+        {
+            get
+            {
+                return pwrRtEnable;
+            }
+            set
+            {
+                pwrRtEnable = value;
+                foreach (var i in this.ListTurbines)
+                {
+                    i.PwrAtEnable = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 连接状态
+        /// </summary>
+        public int ConnectState
+        {
+            get;set;
+        }
     }
 }

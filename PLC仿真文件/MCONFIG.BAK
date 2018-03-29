@@ -1,0 +1,404 @@
+;#PROCLBL MManager V2.09 Release (10.128.1.82)
+;
+;#PROCLBL MManager V2.05 Release (10.128.8.8)
+;Sample Configuration File
+;INFO: Keywords with a leading ; are hidden keywords
+;
+;###########################################################################
+;#                                                                         
+;# MCONFIG.INI FOR X105 LV Towerbase Configuration                                          
+;# Version: 1.1
+;#
+;###########################################################################
+;
+<CPU_ALL>
+[SYSTEM]
+  (BootFiles)
+    Device = cfc0
+    Kernel = vxworks
+    System = msys.o
+  (SysDirs)
+    System = /cfc0/sys/
+    Drivers = /cfc0/drv/
+    Applications = /cfc0/app/
+    Temporary = /ram0/
+    NonVolatile = /nvram0/
+  (BootHost)
+    HostAddress = 
+    Gateway = 
+    HostName = 
+    UserName = M1
+    Password = bachmann
+    Flags = 0x0
+  (Network)
+    NetAddress = 10.128.1.*:ffff0000
+;        NetAddress      = 10.128.1.100
+    NetName = m200
+    UserName = M1
+    Password = bachmann
+  (Login)  ;for login on the M1
+    LoginName = M1
+    PasswordScram = 90B91961A76E6EF4D068C655FF0B17A5
+  (SerialLink)
+    Device = /tyCo/0/2
+    Protocol = ppp  ;or slip, cslip
+    LocalAddress = 192.0.0.231  ;optional
+    RemoteAddress = 192.0.0.249  ;optional
+    PacketSize = 1500
+;       OptionsFile =
+    ModemInit = NullModem  ;for M1 Null-Modem
+  (SysTime)
+    TimeZone = "GMT+08:00"
+    TickRate = 5000  ; ticks per second
+<CPU_M386>
+    TickRate = 500  ;ticks per second
+<CPU_ALL>
+    TimeSlice = 2  ;ticks per time slice
+    AuxRate = 0  ;aux clocks per second, 0=OFF
+;       NoSecondsPOSIX  = OFF                   ;use POSIX function for seconds
+  (SyncRate)
+    SyncHigh = 2500  ;0 = OFF
+    SyncLow = 2500  ;0 = OFF
+  (BlockDrivers)
+    ram0 = 0x418000  ;4192kb
+  (SerialDrivers)
+    COM1Baudrate = 19200
+    COM1DataBits = 8
+    COM1StopBits = 1
+    COM1Parity = None
+    COM1RxBuffer = 1024
+    COM1TxBuffer = 1024
+    COM1Handshake = None
+    COM1LineMode = RS232
+<CPU_M386>
+    COM1DriverMode = IsrMode
+<CPU_ALL>
+    COM1DriverMode = TaskMode
+    COM2Baudrate = 57600
+    COM2DataBits = 8
+    COM2StopBits = 1
+    COM2Parity = None
+    COM2RxBuffer = 1024
+    COM2TxBuffer = 1024
+    COM2Handshake = None
+    COM2LineMode = RS232
+    COM2DriverMode = TaskMode
+  (Memory)
+    Partition = 1  ;for global data
+    Size = 0x10000  ;64KB
+  (Memory)
+    Partition = 2  ;for app programms
+    Size = 0x800000  ;8 MB
+  (Debug)
+    DebugMode = 0x0
+    BootMode = 0x0
+    NoWatchdog = OFF
+    WindView = OFF
+    WindDebug = OFF
+;       WindSyncTimeout = 5000                  ;value in ms used by Target Agent
+    NoWindShell = OFF
+    ShellPriority = 102
+;       WindExcHandler  = OFF
+    Console = /tyCo/0/1  ;or /tyNull
+    ErrOutConsole = ON
+    LogFileName = /nvram0/logfile.txt
+    LogFileSize = 100  ;max 1000 entries
+    LogSizeFixed = OFF  ;do not use fixed entry size
+  (SysMode)
+    AppDevelopment = ON
+    SysDevelopment = OFF
+    CpuTimeInfo = ON
+    NoMemProtect = ON
+    ZeroProtect = OFF
+    PccProgEnable = ON
+    NoCheckDosFs = OFF  ;do not check file systems at boot time
+    SecurityLevel = 0
+    Compatibility = 108
+  (Monitoring)
+    NoWatchCpuTemp = OFF
+    NoWatchCpuUsage = OFF
+    NoWatchNetUsage = OFF
+    NoWatchIOBus = OFF
+    NoWatchAlive = OFF
+    NoFlashRdyLED = OFF
+    NoCheckDRam = OFF
+    NoCheckStack = OFF
+    MaxNetInUsage = 100  ;max ethernet input load in %
+    MaxNetOutUsage = 100  ;max ethernet output load in %
+  (IO-System)
+    ErrorPriority = 10  ;priority of error task
+    EventIntTask = ON  ;event interrupt as task
+    FastBusDelay = 5  ;should be 0 without FAST-Bus
+    MinStations = 1  ;minimum number of stations
+    MaxStations = 16  ;minimum number of stations
+    NoNewSlaveReset = OFF  ;reboot if new slaves are recognized
+    NoBadSlaveReset = OFF  ;reboot if bad slaves are recognized
+    NoRedundantRead = OFF  ;redundant read on all inputs
+    NoWriteVerify = OFF  ;verify writes on all outputs
+    NoPanicOnEvent = OFF  ;no reboot on "Too many event interrupts"
+    NoPanicOnError = OFF  ;no reboot on "Too many error interrupts"
+  (PlcRts)
+    GlobalData = 256
+    RetainData = 256
+    Timeouts = ON
+  (ResHandler)
+    UserCheck = OFF
+  (SmiHandler)
+    SmiQueueSize = 10  ;max number of SMI messages each SW-module
+    ReplyTimeout = 3000  ;timeout in ms for all external SMI replies
+  (Application)
+    Name = X105  ;is shown on the M-Manager
+;       Cpu1Address     = 192.1.0.231
+;       Cpu1Name        = Slave1
+;       Cpu2Address     = 192.1.0.232
+;       Cpu2Name        = Slave2
+  (ErrorHandler)
+    ListRetain5 = ON
+    ListLen5 = 20
+    ListName5 = trip
+    TimestampMode = Entry  ;timestamp at entry or Change
+    ListName1 = system error
+    ListLen1 = 20
+    ListRetain1 = ON
+    ListName2 = error
+    ListLen2 = 20
+    ListRetain2 = OFF
+    ListName3 = warning
+    ListLen3 = 20
+    ListRetain3 = OFF
+    ListName4 = info
+    ListLen4 = 20
+    ListRetain4 = OFF
+  (NfsServer)
+    NoServer = OFF  ;do not start NFS Server
+    Processes = 4  ;number of NFS server tasks
+;    (Gateway)
+;        GateAddress     = 192.168.1.200
+;        Destination     = 192.168.47.0
+[DRIVERS]
+  (Simulator)
+    Samplelen = 100
+  (Card2)
+    OptNodeList1_1 = 1
+    Baudrate1 = 500
+    SyncPriority1 = 20
+    Priority1 = 100
+    CycleTime1 = 10000
+    CfgNode1 = OFF
+    MapCard1 = OFF
+    AppModul1 = OFF
+    PdoLenChk1 = ON
+    WaitAppReady1 = OFF
+    BootUpMsg1 = STANDARD
+    OptNode1 = ON
+    InhibitTime1 = 0
+    NetTimeout1 = 100000
+    NodeTimeout1 = 60000
+    SdoTimeout1 = 500
+    NetNumber1 = 3
+    NetMode = Master
+    DriverName = mx200c
+    Mode = Real
+    SlotNb = 2
+    StationNb = 1
+  (Card3)
+    CardName = FM211
+    DriverName = fm21x
+    Mode = Real
+    SlotNb = 3
+    StationNb = 1
+  (Card5)
+    CardName = DIO248
+    EventModeCh24 = "Pos Edge"
+    EventModeCh23 = "Pos Edge"
+    EventModeCh22 = "Pos Edge"
+    EventModeCh21 = "Pos Edge"
+    EventModeCh20 = "Pos Edge"
+    EventModeCh19 = "Pos Edge"
+    EventModeCh18 = "Pos Edge"
+    EventModeCh17 = "Both Edges"
+    ModeCh16 = IN
+    ModeCh15 = IN
+    ModeCh14 = IN
+    ModeCh13 = IN
+    ModeCh12 = IN
+    ModeCh11 = IN
+    ModeCh10 = IN
+    ModeCh9 = IN
+    ModeCh8 = IN
+    ModeCh7 = IN
+    ModeCh6 = IN
+    ModeCh5 = IN
+    ModeCh4 = IN
+    ModeCh3 = IN
+    ModeCh2 = IN
+    ModeCh1 = IN
+    DriverName = dio2xx
+    Mode = Real
+    SlotNb = 5
+    StationNb = 1
+  (Card6)
+    ModeCh8 = Pt100
+    ModeCh7 = Pt100
+    ModeCh6 = Pt100
+    ModeCh5 = Pt100
+    ModeCh4 = 20mA
+    ModeCh3 = 20mA
+    ModeCh2 = 20mA
+    ModeCh1 = "20mA"
+    DriverName = aio288
+    Mode = Real
+    SlotNb = 6
+    StationNb = 1
+  (Card17)
+    NetMode2 = Unused
+    AppModul1 = OFF
+    PdoLenChk1 = ON
+    WaitAppReady1 = OFF
+    BootUpMsg1 = STANDARD
+    Priority1 = 60
+    NetMode1 = Master
+    Baudrate1 = 250
+    CfgNode1 = OFF
+    OptNode1 = ON
+    NetTimeout1 = 60000
+    NodeTimeout1 = 3000
+    SdoTimeout1 = 500
+    NetNumber1 = 1
+    NetMode = Local
+    DriverName = cm202
+    Mode = Real
+    SlotNb = 1
+    StationNb = 2
+    OptNodeList1_1 = "51 52 53"
+  (Card18)
+    Priority = 120
+    NetName = Nacelle
+    UseGateways = NO
+    NetAddress = 192.0.0.224
+    DriverName = em203
+    Mode = Real
+    SlotNb = 2
+    StationNb = 2
+  (Card19)
+    ModeCh4 = 20mA
+    ModeCh3 = 20mA
+    ModeCh2 = 20mA
+    ModeCh1 = 20mA
+    DriverName = ptai216
+    Mode = Real
+    SlotNb = 3
+    StationNb = 2
+  (Card20)
+    ModeCh8 = Pt100
+    ModeCh7 = Pt100
+    ModeCh6 = 20mA
+    ModeCh5 = 20mA
+    ModeCh4 = 20mA
+    ModeCh3 = 20mA
+    ModeCh2 = 20mA
+    ModeCh1 = "-+10V"
+    DriverName = aio288
+    Mode = Real
+    SlotNb = 4
+    StationNb = 2
+  (Card22)
+    CardName = DIO248
+    EventModeCh24 = "Pos Edge"
+    EventModeCh23 = "Pos Edge"
+    EventModeCh22 = "Pos Edge"
+    EventModeCh21 = "Pos Edge"
+    EventModeCh20 = "Pos Edge"
+    EventModeCh19 = "Pos Edge"
+    EventModeCh18 = "Pos Edge"
+    EventModeCh17 = "Both Edges"
+    ModeCh16 = OUT
+    ModeCh15 = OUT
+    ModeCh14 = OUT
+    ModeCh13 = OUT
+    ModeCh12 = OUT
+    ModeCh11 = OUT
+    ModeCh10 = OUT
+    ModeCh9 = OUT
+    ModeCh8 = IN
+    ModeCh7 = IN
+    ModeCh6 = IN
+    ModeCh5 = IN
+    ModeCh4 = IN
+    ModeCh3 = IN
+    ModeCh2 = IN
+    ModeCh1 = IN
+    DriverName = dio2xx
+    Mode = Real
+    SlotNb = 6
+    StationNb = 2
+[PRG4WPAR]
+  (BaseParms)
+    Partition = 2
+    DebugMode = 0x0
+    Priority = 93
+    ModuleIndex = 0
+    ModulePath = /cfc0/app/
+    ModuleName = PRG4WPAR.m
+[X105PLC]
+  (BaseParms)
+    Partition = 2
+    DebugMode = 0x0
+    Priority = 93
+    ModuleIndex = 0
+    ModulePath = /cfc0/app/
+    ModuleName = x105plc.m
+  (PlcParms)
+    ArgumentStr = "SIM"
+[RECORDER]
+  (BaseParms)
+    Partition = 2
+    DebugMode = 0x1
+    Priority = 93
+    ModuleIndex = 0
+    ModulePath = /cfc0/app/
+    ModuleName = recorder.m
+[WSPD]
+  (BaseParms)
+    Partition = 2
+    DebugMode = 0x0
+    Priority = 18
+    ModuleIndex = 0
+    ModulePath = /cfc0/app/
+    ModuleName = wspd.m
+[MBUS_TCP]
+  (BaseParms)
+    Partition = 0
+    DebugMode = 0
+    Priority = 96
+    ModuleIndex = 0
+    ModulePath = /cfc0/app/
+    ModuleName = modbus.m
+  (Modbus)
+    AllowIP2 = 10.128.5.1
+    Protocol = "MODBUS TCP"
+    AddTpPort = 502
+    AllowIP1 = 10.128.9.45
+    AllowIP3 = 10.128.2.1
+  (Mappings)
+    HRegsSviList1 = "x105PLC/.UI.Mbus.HldReg[1] 768"
+    DiscSviList1 = "x105PLC/.UI.Mbus.Contact[1] 8"
+    CoilsSviList1 = "x105PLC/.UI.Mbus.Coil[1] 8"
+
+[SERVER]
+  (BaseParms)
+    Partition = 2
+    DebugMode = 0x0
+    Priority = 130
+    ModuleIndex = 0
+    ModulePath = /cfc0/app/
+    ModuleName = server.m
+[PTCTRL4]
+  (BaseParms)
+    ModuleName = ptctrl4.m
+    ModulePath = /cfc0/app/
+    Partition = 2
+    Priority = 30
+    ModuleIndex = 0
+    DebugMode = 0x0
+
