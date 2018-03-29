@@ -52,26 +52,7 @@ namespace 风电场功率调度程序
 
         private float limitActivePower;
 
-        /// <summary>
-        /// 风机有功功率限定值
-        /// </summary>
-        public float LimitActivePower
-        {
-            get { return (float)GetTagValue("PwrAtSp"); }
-            set
-            {
-                if (value > this.MaxActivePowerSp)
-                {
-                    limitActivePower = 2000f;
-                }
-                else if (value <= MiniActivePowerSp) //功率设定最小值
-                {
-                    limitActivePower = MiniActivePowerSp;
-                }
-                else limitActivePower = value; 
-                var a  =  SetTagValue( "PwrAtSp", limitActivePower.ToString()); 
-            }
-        }
+      
 
         /// <summary>
         /// 风机状态
@@ -97,7 +78,17 @@ namespace 风电场功率调度程序
                 int result = (int)GetTagValue("TurbineState"); 
                 if (result == 6 ||result == 7) //运行
                 {
-                    runstate = turbineStatu.running;
+
+                    if (this.PwrAtEnable == true && this.LocalOrRemote == false)
+                    {
+                        runstate = turbineStatu.limitedPowerRunning;
+                    }
+                    else
+                    {
+                        runstate = turbineStatu.running;
+                    }
+
+                    
                 }
                 else if (result == 2 || result == 3 || result == 8 || result == 9) //停机
                 {
@@ -172,7 +163,28 @@ namespace 风电场功率调度程序
         public double LineLossActivePower
         {
             get; set;
-        } 
+        }
+
+        /// <summary>
+        /// 风机有功功率限定值
+        /// </summary>
+        public float LimitActivePower
+        {
+            get { return (float)GetTagValue("PwrAtSp"); }
+            set
+            {
+                if (value > this.MaxActivePowerSp)
+                {
+                    limitActivePower = 2000f;
+                }
+                else if (value <= MiniActivePowerSp) //功率设定最小值
+                {
+                    limitActivePower = MiniActivePowerSp;
+                }
+                else limitActivePower = value;
+                var a = SetTagValue("PwrAtSp", limitActivePower.ToString());
+            }
+        }
 
         /// <summary>
         ///  风机名称
@@ -307,6 +319,9 @@ namespace 风电场功率调度程序
             set;
         }
 
+        /// <summary>
+        /// 功率因素
+        /// </summary>
         public double PowerFactor
         {
             get
@@ -318,9 +333,60 @@ namespace 风电场功率调度程序
             {
                 ;
             }
-        } 
+        }
+
+
+        /// <summary>
+        /// 有功使能
+        /// </summary>
+        public bool PwrAtEnable
+        {
+            get
+            {
+                int result = (int)GetTagValue("PwrAtEnable");
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            set
+            {
+                string result = value ? "1" : "0";
+                var a = SetTagValue("PwrAtEnable", result);
+            }
+        }
+
+        /// <summary>
+        /// 无功功使能
+        /// </summary>
+        public bool PwrRtEnable
+        {
+            get
+            {
+                int result = (int)GetTagValue("PwrRtEnable");
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            set
+            {
+                string result = value ? "1" : "0";
+                var a = SetTagValue("PwrRtEnable", result);
+            }
+        }
+
         #endregion
-          
+
         #region 方法
 
         /// <summary>
@@ -423,7 +489,7 @@ namespace 风电场功率调度程序
                 if (this.DeviceTagList != null || this.DeviceTagList.ContainsKey(PropetyKey))
                 {
                     DeviceTagList.TryGetValue(PropetyKey, out tagid);
-                    WindfarmTagList.TryGetValue(tagid, out result);
+                    WindfarmTagList.TryGetValue(tagid, out result); 
                     return result.TagValue;
                 }
                 return 0.0d;
@@ -434,6 +500,33 @@ namespace 风电场功率调度程序
                 return 0.0d;
             } 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="PropetyKey"></param>
+        /// <returns></returns>
+        public string GetTagQuality(string PropetyKey)
+        {
+            try
+            {
+                string tagid = "";
+                Tag result = new Tag();
+                if (this.DeviceTagList != null || this.DeviceTagList.ContainsKey(PropetyKey))
+                {
+                    DeviceTagList.TryGetValue(PropetyKey, out tagid);
+                    WindfarmTagList.TryGetValue(tagid, out result);
+                    return result.TagQuality;
+                }
+                return "0";
+            }
+            catch (Exception ex)
+            {
+
+                return "0";
+            }
+        }
+
 
         /// <summary>
         /// 设定属性值指令
@@ -490,6 +583,14 @@ namespace 风电场功率调度程序
                 return   (int)GetTagValue("CnvGdPwrRt");  
             } 
         }
-        #endregion 
+        #endregion
+
+        public string ConnectState
+        {
+            get
+            {
+               return GetTagQuality("CnvGdPwrAt");
+            } 
+        }
     }
 }
