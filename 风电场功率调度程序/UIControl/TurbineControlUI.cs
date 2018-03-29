@@ -142,6 +142,7 @@ namespace 风电场功率调度程序
                 {
                    this.panel1.BackColor = Color.WhiteSmoke;
                   toolTip1.SetToolTip(this.panel1, "当前控制状态：本地");
+
                 }
                 else
                 { 
