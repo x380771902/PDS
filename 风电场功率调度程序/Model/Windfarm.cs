@@ -125,6 +125,7 @@ namespace 风电场功率调度程序
                     foreach (var i in ListTurbines)
                     {
                         i.LimitActivePower = i.MaxActivePowerSp * a;
+
                     }
                 }
             }
