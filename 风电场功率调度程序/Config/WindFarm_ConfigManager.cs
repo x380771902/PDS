@@ -91,6 +91,12 @@ namespace 风电场功率调度程序
              ConfigWindfarm.EnableAutoStopTurbine = bool.Parse(windfarminfonode.SelectSingleNode("EnableAutoStopTurbine").InnerText.Trim()); 
              ConfigWindfarm.EnableLimitActivePowerSpeed = bool.Parse(windfarminfonode.SelectSingleNode("EnableLimitActivePowerSpeed").InnerText.Trim());
              ConfigWindfarm.ControlStrategy = int.Parse(windfarminfonode.SelectSingleNode("ControlStrategy").InnerText.Trim());
+
+            ConfigWindfarm.ReactiveControlStrategy = int.Parse(windfarminfonode.SelectSingleNode("ReactiveControlStrategy").InnerText.Trim());
+            ConfigWindfarm.MaxLimitActivePower = int.Parse(windfarminfonode.SelectSingleNode("TotalMaxActivePower").InnerText.Trim());
+             ConfigWindfarm.MaxLimitReactivePower = int.Parse(windfarminfonode.SelectSingleNode("TotalMaxReactivePower").InnerText.Trim());
+
+
         }
 
         /// <summary>

@@ -87,8 +87,6 @@ namespace 风电场功率调度程序
                     {
                         runstate = turbineStatu.running;
                     }
-
-                    
                 }
                 else if (result == 2 || result == 3 || result == 8 || result == 9) //停机
                 {
@@ -154,8 +152,7 @@ namespace 风电场功率调度程序
         /// <summary>
         /// 风机编号
         /// </summary>
-        public int TurbineID { get; set; }
-
+        public int TurbineID { get; set; } 
 
         /// <summary>
         /// 线路损耗
@@ -182,7 +179,7 @@ namespace 风电场功率调度程序
                     limitActivePower = MiniActivePowerSp;
                 }
                 else limitActivePower = value;
-                var a = SetTagValue("PwrAtSp", limitActivePower.ToString());
+                SetTagValue("PwrAtSp", limitActivePower.ToString());
             }
         }
 
@@ -331,7 +328,30 @@ namespace 风电场功率调度程序
 
             set
             {
-                ;
+                double a= 0.0d;
+                if (value > 0) // 超前
+                {
+                    if (value > 1d)
+                    {
+                        a = 1d; 
+                    }
+                    if (value < MaxCnvPhiSp)
+                    {
+                        a = MaxCnvPhiSp;
+                    } 
+                }
+                else// 滞后
+                {
+                    if (value > -1d)
+                    {
+                        a = -1d;
+                    }
+                    if (value < MiniCnvPhiSp)
+                    {
+                        a = MiniCnvPhiSp;
+                    } 
+                }
+                SetTagValue("CnvPhiSp", a.ToString()) ;
             }
         }
 
@@ -356,7 +376,7 @@ namespace 风电场功率调度程序
             set
             {
                 string result = value ? "1" : "0";
-                var a = SetTagValue("PwrAtEnable", result);
+                SetTagValue("PwrAtEnable", result);
             }
         }
 
@@ -381,7 +401,42 @@ namespace 风电场功率调度程序
             set
             {
                 string result = value ? "1" : "0";
-                var a = SetTagValue("PwrRtEnable", result);
+                 SetTagValue("PwrRtEnable", result);
+            }
+        }
+        /// <summary>
+        /// 通讯状态
+        /// </summary>
+        public string ConnectState
+        {
+            get
+            {
+                return GetTagQuality("CnvGdPwrAt");
+            }
+        }
+
+        /// <summary>
+        /// 无功功率给定值
+        /// </summary>
+        public int LimitRectivePower
+        {
+            get
+            {
+                return (int)GetTagValue("PwrRtSp");
+            }
+            set
+            { 
+                int a = value;
+
+                if (a < MiniReactivePowerSp)
+                {
+                    a = MiniReactivePowerSp;
+                }               
+                if (a > MaxReactivePowerSp)
+                {
+                    a = MaxReactivePowerSp; 
+                } 
+                SetTagValue("PwrRtSp", a.ToString());
             }
         }
 
@@ -585,12 +640,6 @@ namespace 风电场功率调度程序
         }
         #endregion
 
-        public string ConnectState
-        {
-            get
-            {
-               return GetTagQuality("CnvGdPwrAt");
-            } 
-        }
+       
     }
 }

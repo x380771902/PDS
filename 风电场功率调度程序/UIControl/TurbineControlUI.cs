@@ -96,8 +96,7 @@ namespace 风电场功率调度程序
 
                 this.p1.Height = (int)(ActivePower / 2000 * this.Height);
                 this.p1.Location = new Point(159, (int)((1.0d - ActivePower / 2000)  * this.Height)-2);
-
-               // this.p1.Location = new Point(159, 50);
+                 
             }
         }
 
@@ -142,7 +141,6 @@ namespace 风电场功率调度程序
                 {
                    this.panel1.BackColor = Color.WhiteSmoke;
                   toolTip1.SetToolTip(this.panel1, "当前控制状态：本地");
-
                 }
                 else
                 { 

@@ -64,7 +64,7 @@ namespace 风电场功率调度程序
                     MessageBox.Show("登录失败，用户名或密码错误！");
                 }
             }
-            catch  
+            catch(Exception ex)
             {
                 MessageBox.Show("连接服务器失败，请联系管理员或者技术支持人员！");
             } 

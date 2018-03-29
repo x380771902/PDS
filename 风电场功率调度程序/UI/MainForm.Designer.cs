@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.FLP1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +55,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnEnableLimitActivePower = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.nudLimit = new System.Windows.Forms.NumericUpDown();
+            this.nudLimitAp = new System.Windows.Forms.NumericUpDown();
             this.btnDisableLimitActivePower = new System.Windows.Forms.Button();
             this.lbxStopList = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -71,10 +71,21 @@
             this.btnSetActivePowerLimitValue = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
+            this.labControlStrategy = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.labTotalActivePowerSp = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.labTotalReactivePowerSp = new System.Windows.Forms.Label();
+            this.btnSetReActivePowerLimitValue = new System.Windows.Forms.Button();
+            this.nudLimitRap = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.labTotalReactivePower = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLimitAp)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLimitRap)).BeginInit();
             this.SuspendLayout();
             // 
             // FLP1
@@ -206,16 +217,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 80);
+            this.label1.Location = new System.Drawing.Point(2, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 2;
-            this.label1.Text = "总功率：";
+            this.label1.Text = "总有功反馈：";
             // 
             // labTotalActivePower
             // 
             this.labTotalActivePower.AutoSize = true;
-            this.labTotalActivePower.Location = new System.Drawing.Point(66, 80);
+            this.labTotalActivePower.Location = new System.Drawing.Point(85, 76);
             this.labTotalActivePower.Name = "labTotalActivePower";
             this.labTotalActivePower.Size = new System.Drawing.Size(53, 12);
             this.labTotalActivePower.TabIndex = 3;
@@ -224,7 +235,7 @@
             // labAws
             // 
             this.labAws.AutoSize = true;
-            this.labAws.Location = new System.Drawing.Point(66, 33);
+            this.labAws.Location = new System.Drawing.Point(85, 34);
             this.labAws.Name = "labAws";
             this.labAws.Size = new System.Drawing.Size(53, 12);
             this.labAws.TabIndex = 9;
@@ -233,7 +244,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 33);
+            this.label5.Location = new System.Drawing.Point(14, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 8;
@@ -242,15 +253,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 112);
+            this.label4.Location = new System.Drawing.Point(2, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 11;
-            this.label4.Text = "功率限定值：";
+            this.label4.Text = "有功限定值：";
             // 
             // btnEnableLimitActivePower
             // 
-            this.btnEnableLimitActivePower.Location = new System.Drawing.Point(8, 208);
+            this.btnEnableLimitActivePower.Location = new System.Drawing.Point(10, 300);
             this.btnEnableLimitActivePower.Name = "btnEnableLimitActivePower";
             this.btnEnableLimitActivePower.Size = new System.Drawing.Size(88, 23);
             this.btnEnableLimitActivePower.TabIndex = 12;
@@ -261,29 +272,30 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 140);
+            this.label6.Location = new System.Drawing.Point(9, 206);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 12);
             this.label6.TabIndex = 13;
             this.label6.Text = "kW";
             // 
-            // nudLimit
+            // nudLimitAp
             // 
-            this.nudLimit.Increment = new decimal(new int[] {
+            this.nudLimitAp.Enabled = false;
+            this.nudLimitAp.Increment = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.nudLimit.Location = new System.Drawing.Point(8, 134);
-            this.nudLimit.Maximum = new decimal(new int[] {
+            this.nudLimitAp.Location = new System.Drawing.Point(8, 200);
+            this.nudLimitAp.Maximum = new decimal(new int[] {
             50000,
             0,
             0,
             0});
-            this.nudLimit.Name = "nudLimit";
-            this.nudLimit.Size = new System.Drawing.Size(87, 21);
-            this.nudLimit.TabIndex = 14;
-            this.nudLimit.Value = new decimal(new int[] {
+            this.nudLimitAp.Name = "nudLimitAp";
+            this.nudLimitAp.Size = new System.Drawing.Size(65, 21);
+            this.nudLimitAp.TabIndex = 14;
+            this.nudLimitAp.Value = new decimal(new int[] {
             20000,
             0,
             0,
@@ -292,7 +304,7 @@
             // btnDisableLimitActivePower
             // 
             this.btnDisableLimitActivePower.Enabled = false;
-            this.btnDisableLimitActivePower.Location = new System.Drawing.Point(8, 237);
+            this.btnDisableLimitActivePower.Location = new System.Drawing.Point(10, 329);
             this.btnDisableLimitActivePower.Name = "btnDisableLimitActivePower";
             this.btnDisableLimitActivePower.Size = new System.Drawing.Size(88, 23);
             this.btnDisableLimitActivePower.TabIndex = 15;
@@ -302,19 +314,17 @@
             // 
             // lbxStopList
             // 
-            this.lbxStopList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbxStopList.FormattingEnabled = true;
             this.lbxStopList.ItemHeight = 12;
-            this.lbxStopList.Location = new System.Drawing.Point(8, 544);
+            this.lbxStopList.Location = new System.Drawing.Point(8, 559);
             this.lbxStopList.Name = "lbxStopList";
-            this.lbxStopList.Size = new System.Drawing.Size(137, 184);
+            this.lbxStopList.Size = new System.Drawing.Size(137, 112);
             this.lbxStopList.TabIndex = 17;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 316);
+            this.label7.Location = new System.Drawing.Point(8, 380);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 18;
@@ -323,7 +333,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 522);
+            this.label8.Location = new System.Drawing.Point(6, 534);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 19;
@@ -355,7 +365,7 @@
             // labTheoreticalPower
             // 
             this.labTheoreticalPower.AutoSize = true;
-            this.labTheoreticalPower.Location = new System.Drawing.Point(66, 56);
+            this.labTheoreticalPower.Location = new System.Drawing.Point(85, 56);
             this.labTheoreticalPower.Name = "labTheoreticalPower";
             this.labTheoreticalPower.Size = new System.Drawing.Size(53, 12);
             this.labTheoreticalPower.TabIndex = 22;
@@ -364,19 +374,19 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 55);
+            this.label10.Location = new System.Drawing.Point(14, 55);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 21;
-            this.label10.Text = "理论功率：";
+            this.label10.Text = "理论有功：";
             // 
             // lbxStartList
             // 
             this.lbxStartList.FormattingEnabled = true;
             this.lbxStartList.ItemHeight = 12;
-            this.lbxStartList.Location = new System.Drawing.Point(8, 341);
+            this.lbxStartList.Location = new System.Drawing.Point(8, 405);
             this.lbxStartList.Name = "lbxStartList";
-            this.lbxStartList.Size = new System.Drawing.Size(137, 172);
+            this.lbxStartList.Size = new System.Drawing.Size(137, 112);
             this.lbxStartList.TabIndex = 23;
             // 
             // richTextBox1
@@ -404,11 +414,11 @@
             // btnSetActivePowerLimitValue
             // 
             this.btnSetActivePowerLimitValue.Enabled = false;
-            this.btnSetActivePowerLimitValue.Location = new System.Drawing.Point(8, 161);
+            this.btnSetActivePowerLimitValue.Location = new System.Drawing.Point(80, 198);
             this.btnSetActivePowerLimitValue.Name = "btnSetActivePowerLimitValue";
-            this.btnSetActivePowerLimitValue.Size = new System.Drawing.Size(87, 23);
+            this.btnSetActivePowerLimitValue.Size = new System.Drawing.Size(66, 23);
             this.btnSetActivePowerLimitValue.TabIndex = 26;
-            this.btnSetActivePowerLimitValue.Text = "修改限定值";
+            this.btnSetActivePowerLimitValue.Text = "给定有功";
             this.btnSetActivePowerLimitValue.UseVisualStyleBackColor = true;
             this.btnSetActivePowerLimitValue.Click += new System.EventHandler(this.btnSetActivePowerLimitValue_Click);
             // 
@@ -417,55 +427,55 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chart1.BackColor = System.Drawing.Color.Transparent;
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea4.AxisX.IsStartedFromZero = false;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea4.AxisX.MinorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.IsLabelAutoFit = false;
-            chartArea4.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            chartArea2.AxisX.IsStartedFromZero = false;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisY.IsLabelAutoFit = false;
+            chartArea2.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45)));
-            chartArea4.AxisY.LabelStyle.Angle = -45;
-            chartArea4.AxisY.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea4.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea4.AxisY.Maximum = 50000D;
-            chartArea4.AxisY.Minimum = 0D;
-            chartArea4.AxisY2.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea4.BackColor = System.Drawing.Color.Black;
-            chartArea4.InnerPlotPosition.Auto = false;
-            chartArea4.InnerPlotPosition.Height = 76.67067F;
-            chartArea4.InnerPlotPosition.Width = 88.42284F;
-            chartArea4.InnerPlotPosition.X = 6F;
-            chartArea4.InnerPlotPosition.Y = 1F;
-            chartArea4.IsSameFontSizeForAllAxes = true;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.Position.Auto = false;
-            chartArea4.Position.Height = 100F;
-            chartArea4.Position.Width = 100F;
-            this.chart1.ChartAreas.Add(chartArea4);
+            chartArea2.AxisY.LabelStyle.Angle = -45;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Lime;
+            chartArea2.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea2.AxisY.Maximum = 50000D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea2.BackColor = System.Drawing.Color.Black;
+            chartArea2.InnerPlotPosition.Auto = false;
+            chartArea2.InnerPlotPosition.Height = 76.67067F;
+            chartArea2.InnerPlotPosition.Width = 88.42284F;
+            chartArea2.InnerPlotPosition.X = 6F;
+            chartArea2.InnerPlotPosition.Y = 1F;
+            chartArea2.IsSameFontSizeForAllAxes = true;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 100F;
+            chartArea2.Position.Width = 100F;
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(171, 542);
             this.chart1.Name = "chart1";
-            series7.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkUpwardDiagonal;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series7.IsVisibleInLegend = false;
-            series7.IsXValueIndexed = true;
-            series7.LabelForeColor = System.Drawing.SystemColors.Control;
-            series7.Name = "实时功率";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.IsVisibleInLegend = false;
-            series8.LabelForeColor = System.Drawing.Color.White;
-            series8.Name = "限定功率";
-            series8.YValuesPerPoint = 2;
-            this.chart1.Series.Add(series7);
-            this.chart1.Series.Add(series8);
+            series3.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkUpwardDiagonal;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series3.IsVisibleInLegend = false;
+            series3.IsXValueIndexed = true;
+            series3.LabelForeColor = System.Drawing.SystemColors.Control;
+            series3.Name = "实时功率";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.IsVisibleInLegend = false;
+            series4.LabelForeColor = System.Drawing.Color.White;
+            series4.Name = "限定功率";
+            series4.YValuesPerPoint = 2;
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(588, 211);
             this.chart1.TabIndex = 27;
             this.chart1.Text = "chart1";
@@ -481,11 +491,127 @@
             this.label3.TabIndex = 28;
             this.label3.Text = "实时曲线：";
             // 
+            // labControlStrategy
+            // 
+            this.labControlStrategy.AutoSize = true;
+            this.labControlStrategy.Location = new System.Drawing.Point(85, 121);
+            this.labControlStrategy.Name = "labControlStrategy";
+            this.labControlStrategy.Size = new System.Drawing.Size(53, 12);
+            this.labControlStrategy.TabIndex = 30;
+            this.labControlStrategy.Text = "未初始化";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 121);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "调控模式：";
+            // 
+            // labTotalActivePowerSp
+            // 
+            this.labTotalActivePowerSp.AutoSize = true;
+            this.labTotalActivePowerSp.Location = new System.Drawing.Point(85, 178);
+            this.labTotalActivePowerSp.Name = "labTotalActivePowerSp";
+            this.labTotalActivePowerSp.Size = new System.Drawing.Size(53, 12);
+            this.labTotalActivePowerSp.TabIndex = 34;
+            this.labTotalActivePowerSp.Text = "未初始化";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(2, 98);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 12);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "总无功反馈：";
+            // 
+            // labTotalReactivePowerSp
+            // 
+            this.labTotalReactivePowerSp.AutoSize = true;
+            this.labTotalReactivePowerSp.Location = new System.Drawing.Point(85, 226);
+            this.labTotalReactivePowerSp.Name = "labTotalReactivePowerSp";
+            this.labTotalReactivePowerSp.Size = new System.Drawing.Size(53, 12);
+            this.labTotalReactivePowerSp.TabIndex = 39;
+            this.labTotalReactivePowerSp.Text = "未初始化";
+            // 
+            // btnSetReActivePowerLimitValue
+            // 
+            this.btnSetReActivePowerLimitValue.Enabled = false;
+            this.btnSetReActivePowerLimitValue.Location = new System.Drawing.Point(80, 246);
+            this.btnSetReActivePowerLimitValue.Name = "btnSetReActivePowerLimitValue";
+            this.btnSetReActivePowerLimitValue.Size = new System.Drawing.Size(66, 23);
+            this.btnSetReActivePowerLimitValue.TabIndex = 38;
+            this.btnSetReActivePowerLimitValue.Text = "给定无功";
+            this.btnSetReActivePowerLimitValue.UseVisualStyleBackColor = true;
+            this.btnSetReActivePowerLimitValue.Click += new System.EventHandler(this.btnSetReActivePowerLimitValue_Click);
+            // 
+            // nudLimitRap
+            // 
+            this.nudLimitRap.Enabled = false;
+            this.nudLimitRap.Increment = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.nudLimitRap.Location = new System.Drawing.Point(8, 248);
+            this.nudLimitRap.Maximum = new decimal(new int[] {
+            50000,
+            0,
+            0,
+            0});
+            this.nudLimitRap.Name = "nudLimitRap";
+            this.nudLimitRap.Size = new System.Drawing.Size(65, 21);
+            this.nudLimitRap.TabIndex = 37;
+            this.nudLimitRap.Value = new decimal(new int[] {
+            20000,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(8, 254);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(17, 12);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "kW";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(2, 226);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 12);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "无功限定值：";
+            // 
+            // labTotalReactivePower
+            // 
+            this.labTotalReactivePower.AutoSize = true;
+            this.labTotalReactivePower.Location = new System.Drawing.Point(85, 98);
+            this.labTotalReactivePower.Name = "labTotalReactivePower";
+            this.labTotalReactivePower.Size = new System.Drawing.Size(53, 12);
+            this.labTotalReactivePower.TabIndex = 40;
+            this.labTotalReactivePower.Text = "未初始化";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 753);
+            this.Controls.Add(this.labTotalReactivePower);
+            this.Controls.Add(this.labTotalReactivePowerSp);
+            this.Controls.Add(this.btnSetReActivePowerLimitValue);
+            this.Controls.Add(this.nudLimitRap);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.labTotalActivePowerSp);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labControlStrategy);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSetActivePowerLimitValue);
             this.Controls.Add(this.label2);
@@ -497,7 +623,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDisableLimitActivePower);
-            this.Controls.Add(this.nudLimit);
+            this.Controls.Add(this.nudLimitAp);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnEnableLimitActivePower);
             this.Controls.Add(this.label4);
@@ -516,10 +642,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLimitAp)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLimitRap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,7 +666,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEnableLimitActivePower;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown nudLimit;
+        private System.Windows.Forms.NumericUpDown nudLimitAp;
         private System.Windows.Forms.Button btnDisableLimitActivePower;
         private System.Windows.Forms.ListBox lbxStopList;
         private System.Windows.Forms.Label label7;
@@ -566,6 +693,16 @@
         private System.Windows.Forms.Button btnSetActivePowerLimitValue;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labControlStrategy;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labTotalActivePowerSp;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labTotalReactivePowerSp;
+        private System.Windows.Forms.Button btnSetReActivePowerLimitValue;
+        private System.Windows.Forms.NumericUpDown nudLimitRap;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labTotalReactivePower;
     }
 }
 

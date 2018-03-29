@@ -48,14 +48,21 @@
             this.cboxLimitActivePowerSpeed = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.rbtnReactiveControlStrategy2 = new System.Windows.Forms.RadioButton();
+            this.rbtnReactiveControlStrategy1 = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(318, 218);
+            this.btnSave.Location = new System.Drawing.Point(318, 253);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
@@ -66,7 +73,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(399, 218);
+            this.btnCancel.Location = new System.Drawing.Point(399, 253);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -76,7 +83,7 @@
             // cboxstartturbine
             // 
             this.cboxstartturbine.AutoSize = true;
-            this.cboxstartturbine.Location = new System.Drawing.Point(133, 159);
+            this.cboxstartturbine.Location = new System.Drawing.Point(133, 202);
             this.cboxstartturbine.Name = "cboxstartturbine";
             this.cboxstartturbine.Size = new System.Drawing.Size(96, 16);
             this.cboxstartturbine.TabIndex = 2;
@@ -86,7 +93,7 @@
             // cboxstopturbine
             // 
             this.cboxstopturbine.AutoSize = true;
-            this.cboxstopturbine.Location = new System.Drawing.Point(133, 191);
+            this.cboxstopturbine.Location = new System.Drawing.Point(133, 234);
             this.cboxstopturbine.Name = "cboxstopturbine";
             this.cboxstopturbine.Size = new System.Drawing.Size(96, 16);
             this.cboxstopturbine.TabIndex = 3;
@@ -114,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 160);
+            this.label4.Location = new System.Drawing.Point(24, 203);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 10;
@@ -123,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 191);
+            this.label3.Location = new System.Drawing.Point(24, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 11;
@@ -132,7 +139,7 @@
             // rbtnControlStrategy1
             // 
             this.rbtnControlStrategy1.AutoSize = true;
-            this.rbtnControlStrategy1.Location = new System.Drawing.Point(134, 56);
+            this.rbtnControlStrategy1.Location = new System.Drawing.Point(4, 3);
             this.rbtnControlStrategy1.Name = "rbtnControlStrategy1";
             this.rbtnControlStrategy1.Size = new System.Drawing.Size(83, 16);
             this.rbtnControlStrategy1.TabIndex = 12;
@@ -143,7 +150,7 @@
             // rbtnControlStrategy2
             // 
             this.rbtnControlStrategy2.AutoSize = true;
-            this.rbtnControlStrategy2.Location = new System.Drawing.Point(235, 56);
+            this.rbtnControlStrategy2.Location = new System.Drawing.Point(105, 3);
             this.rbtnControlStrategy2.Name = "rbtnControlStrategy2";
             this.rbtnControlStrategy2.Size = new System.Drawing.Size(71, 16);
             this.rbtnControlStrategy2.TabIndex = 12;
@@ -164,7 +171,7 @@
             // rbtnControlStrategy3
             // 
             this.rbtnControlStrategy3.AutoSize = true;
-            this.rbtnControlStrategy3.Location = new System.Drawing.Point(318, 56);
+            this.rbtnControlStrategy3.Location = new System.Drawing.Point(188, 3);
             this.rbtnControlStrategy3.Name = "rbtnControlStrategy3";
             this.rbtnControlStrategy3.Size = new System.Drawing.Size(119, 16);
             this.rbtnControlStrategy3.TabIndex = 16;
@@ -175,7 +182,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 92);
+            this.label6.Location = new System.Drawing.Point(24, 136);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 17;
@@ -189,7 +196,7 @@
             0,
             0,
             196608});
-            this.numericUpDown1.Location = new System.Drawing.Point(133, 121);
+            this.numericUpDown1.Location = new System.Drawing.Point(133, 164);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(70, 21);
             this.numericUpDown1.TabIndex = 18;
@@ -197,7 +204,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 125);
+            this.label5.Location = new System.Drawing.Point(24, 168);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 12);
             this.label5.TabIndex = 19;
@@ -206,7 +213,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(237, 125);
+            this.label7.Location = new System.Drawing.Point(237, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 12);
             this.label7.TabIndex = 21;
@@ -215,7 +222,7 @@
             // numericUpDown2
             // 
             this.numericUpDown2.DecimalPlaces = 3;
-            this.numericUpDown2.Location = new System.Drawing.Point(344, 121);
+            this.numericUpDown2.Location = new System.Drawing.Point(344, 164);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(76, 21);
             this.numericUpDown2.TabIndex = 20;
@@ -223,7 +230,7 @@
             // cboxLimitActivePowerSpeed
             // 
             this.cboxLimitActivePowerSpeed.AutoSize = true;
-            this.cboxLimitActivePowerSpeed.Location = new System.Drawing.Point(133, 91);
+            this.cboxLimitActivePowerSpeed.Location = new System.Drawing.Point(133, 135);
             this.cboxLimitActivePowerSpeed.Name = "cboxLimitActivePowerSpeed";
             this.cboxLimitActivePowerSpeed.Size = new System.Drawing.Size(120, 16);
             this.cboxLimitActivePowerSpeed.TabIndex = 22;
@@ -233,7 +240,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(209, 125);
+            this.label8.Location = new System.Drawing.Point(209, 168);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(11, 12);
             this.label8.TabIndex = 23;
@@ -242,17 +249,69 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(426, 124);
+            this.label9.Location = new System.Drawing.Point(426, 167);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(11, 12);
             this.label9.TabIndex = 24;
             this.label9.Text = "%";
             // 
+            // rbtnReactiveControlStrategy2
+            // 
+            this.rbtnReactiveControlStrategy2.AutoSize = true;
+            this.rbtnReactiveControlStrategy2.Location = new System.Drawing.Point(105, 7);
+            this.rbtnReactiveControlStrategy2.Name = "rbtnReactiveControlStrategy2";
+            this.rbtnReactiveControlStrategy2.Size = new System.Drawing.Size(71, 16);
+            this.rbtnReactiveControlStrategy2.TabIndex = 26;
+            this.rbtnReactiveControlStrategy2.TabStop = true;
+            this.rbtnReactiveControlStrategy2.Text = "均衡分配";
+            this.rbtnReactiveControlStrategy2.UseVisualStyleBackColor = true;
+            // 
+            // rbtnReactiveControlStrategy1
+            // 
+            this.rbtnReactiveControlStrategy1.AutoSize = true;
+            this.rbtnReactiveControlStrategy1.Location = new System.Drawing.Point(4, 7);
+            this.rbtnReactiveControlStrategy1.Name = "rbtnReactiveControlStrategy1";
+            this.rbtnReactiveControlStrategy1.Size = new System.Drawing.Size(83, 16);
+            this.rbtnReactiveControlStrategy1.TabIndex = 27;
+            this.rbtnReactiveControlStrategy1.TabStop = true;
+            this.rbtnReactiveControlStrategy1.Text = "等比例分配";
+            this.rbtnReactiveControlStrategy1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 102);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 12);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "无功分配模式：";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbtnControlStrategy1);
+            this.panel1.Controls.Add(this.rbtnControlStrategy2);
+            this.panel1.Controls.Add(this.rbtnControlStrategy3);
+            this.panel1.Location = new System.Drawing.Point(133, 58);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(331, 25);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbtnReactiveControlStrategy1);
+            this.panel2.Controls.Add(this.rbtnReactiveControlStrategy2);
+            this.panel2.Location = new System.Drawing.Point(133, 94);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(331, 26);
+            this.panel2.TabIndex = 29;
+            // 
             // ControlStrategyManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 253);
+            this.ClientSize = new System.Drawing.Size(496, 288);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cboxLimitActivePowerSpeed);
@@ -261,10 +320,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.rbtnControlStrategy3);
             this.Controls.Add(this.cboxIgnoreSample);
-            this.Controls.Add(this.rbtnControlStrategy2);
-            this.Controls.Add(this.rbtnControlStrategy1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -273,11 +329,16 @@
             this.Controls.Add(this.cboxstartturbine);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.panel2);
             this.Name = "ControlStrategyManageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "控制策略管理界面";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +366,10 @@
         private System.Windows.Forms.CheckBox cboxLimitActivePowerSpeed;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton rbtnReactiveControlStrategy2;
+        private System.Windows.Forms.RadioButton rbtnReactiveControlStrategy1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

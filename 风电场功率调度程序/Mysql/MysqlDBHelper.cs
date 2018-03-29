@@ -47,9 +47,12 @@ namespace 风电场功率调度程序
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:检查 SQL 查询是否存在安全漏洞")]
         public static int ExecuteCommand(string safeSql)
         {
+            lock(Connection)
+            { 
             MySqlCommand cmd = new MySqlCommand(safeSql, Connection);
             int result = cmd.ExecuteNonQuery();
             return result;
+            }
         }
 
         //（有参）

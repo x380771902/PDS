@@ -54,6 +54,9 @@ namespace 风电场功率调度程序
             get; set;
         }
 
+        /// <summary>
+        /// 总有功功率
+        /// </summary>
         public int TatolActivePower
         {
             get
@@ -62,7 +65,6 @@ namespace 风电场功率调度程序
                 for (int i = 0; i < ListTurbines.Count; i++)
                 {
                     a = a + ListTurbines[i].ActivePower;
-
                 }
                 return (int)a;
             }
@@ -129,6 +131,47 @@ namespace 风电场功率调度程序
                     }
                 }
             }
+        }
+
+
+        /// <summary>
+        /// 总无功功率设定值
+        /// </summary>
+        public int TatolReactivePowerValueSetPoint
+        {
+            get
+            {
+                int a = 0;
+                for (int i = 0; i < ListTurbines.Count; i++)
+                {
+                    a = a + ListTurbines[i].LimitRectivePower;
+                }
+                return a;
+            } 
+            set
+            { 
+                int a = value / ListTurbines.Count;
+                    foreach (var i in ListTurbines)
+                    {
+                        i.LimitRectivePower = a; 
+                    } 
+            }
+        }
+
+        /// <summary>
+        /// 总无功功率
+        /// </summary>
+        public int TatolReactivePowerValue
+        {
+            get
+            {
+                int a = 0;
+                for (int i = 0; i < ListTurbines.Count; i++)
+                {
+                    a = a + ListTurbines[i].ReActivePower;
+                }
+                return a;
+            } 
         }
 
         /// <summary>
@@ -337,7 +380,7 @@ namespace 风电场功率调度程序
                 pwrRtEnable = value;
                 foreach (var i in this.ListTurbines)
                 {
-                    i.PwrAtEnable = value;
+                    i.PwrRtEnable = value;
                 }
             }
         }
@@ -349,5 +392,28 @@ namespace 风电场功率调度程序
         {
             get;set;
         }
+
+        /// <summary>
+        /// 最大可控有功
+        /// </summary>
+        public int MaxLimitActivePower
+        {
+            get;set;
+           
+        }
+
+        /// <summary>
+        /// 最大可控无功
+        /// </summary>
+        public int MaxLimitReactivePower
+        {
+            get; set;
+        }
+        
+        /// <summary>
+        /// 无功控制模式
+        /// </summary>
+        public int ReactiveControlStrategy
+        { get; set; }
     }
 }

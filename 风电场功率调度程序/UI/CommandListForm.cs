@@ -28,10 +28,8 @@ namespace 风电场功率调度程序
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Source);
-            }
-          
-
+                MessageBox.Show(ex.ToString());
+            } 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -45,12 +43,8 @@ namespace 风电场功率调度程序
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Source);
-            }
-
-
-
-           
+                MessageBox.Show(ex.ToString());
+            } 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
