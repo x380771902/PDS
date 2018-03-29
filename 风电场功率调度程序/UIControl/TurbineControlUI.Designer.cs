@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,9 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.p1bg = new System.Windows.Forms.Panel();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -135,10 +132,10 @@
             this.p1.BackColor = System.Drawing.Color.Green;
             this.p1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.p1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.p1.Location = new System.Drawing.Point(159, 2);
+            this.p1.Location = new System.Drawing.Point(161, 2);
             this.p1.Margin = new System.Windows.Forms.Padding(1);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(27, 97);
+            this.p1.Size = new System.Drawing.Size(23, 97);
             this.p1.TabIndex = 9;
             // 
             // label9
@@ -163,7 +160,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.Green;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(190, 2);
@@ -173,64 +170,40 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BackColor = System.Drawing.Color.Green;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(190, 22);
+            this.panel2.Location = new System.Drawing.Point(190, 25);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(22, 17);
             this.panel2.TabIndex = 11;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.BackColor = System.Drawing.Color.Green;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel3.Location = new System.Drawing.Point(190, 42);
+            this.panel3.Location = new System.Drawing.Point(-1, -1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(22, 17);
             this.panel3.TabIndex = 12;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.BackColor = System.Drawing.Color.Green;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(190, 62);
+            this.panel4.Location = new System.Drawing.Point(190, 48);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(22, 17);
             this.panel4.TabIndex = 13;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.Control;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel5.Location = new System.Drawing.Point(190, 82);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(22, 17);
-            this.panel5.TabIndex = 14;
-            // 
-            // p1bg
-            // 
-            this.p1bg.BackColor = System.Drawing.Color.Honeydew;
-            this.p1bg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.p1bg.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.p1bg.ForeColor = System.Drawing.SystemColors.Control;
-            this.p1bg.Location = new System.Drawing.Point(159, 2);
-            this.p1bg.Margin = new System.Windows.Forms.Padding(1);
-            this.p1bg.Name = "p1bg";
-            this.p1bg.Size = new System.Drawing.Size(27, 97);
-            this.p1bg.TabIndex = 10;
             // 
             // TurbineControlUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -245,11 +218,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.p1);
-            this.Controls.Add(this.p1bg);
             this.Name = "TurbineControlUI";
-            this.Size = new System.Drawing.Size(215, 102);
+            this.Size = new System.Drawing.Size(215, 101);
             this.MouseLeave += new System.EventHandler(this.TurbineControlUI_MouseLeave);
             this.MouseHover += new System.EventHandler(this.TurbineControlUI_MouseHover);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,8 +245,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel p1bg;
     }
 }

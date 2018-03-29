@@ -88,9 +88,6 @@
             series3.LabelForeColor = System.Drawing.Color.White;
             series3.Legend = "Legend1";
             series3.Name = "理论功率";
-            series3.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes;
-            series3.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.White;
-            series3.SmartLabelStyle.IsMarkerOverlappingAllowed = true;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
@@ -100,7 +97,6 @@
             title1.Name = "Title1";
             title1.Text = "实时曲线追踪";
             this.chart1.Titles.Add(title1);
-            this.chart1.DoubleClick += new System.EventHandler(this.chart1_DoubleClick);
             // 
             // timer1
             // 

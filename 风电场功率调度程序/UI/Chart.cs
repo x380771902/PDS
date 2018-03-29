@@ -14,8 +14,7 @@ namespace 风电场功率调度程序
     {
         public Chart()
         {
-            InitializeComponent();
-            this.Icon = Properties.Resources.bitbug_favicon;
+            InitializeComponent(); 
         }
 
         private Windfarm wf = null;
@@ -25,7 +24,6 @@ namespace 风电场功率调度程序
             InitializeComponent();
             this.Icon = Properties.Resources.bitbug_favicon;
             this.wf = wf;
-             
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -39,16 +37,10 @@ namespace 风电场功率调度程序
             {
                 this.chart1.Series[0].Points.RemoveAt(0);
                 this.chart1.Series[1].Points.RemoveAt(0);
-                this.chart1.Series[2].Points.RemoveAt(0); 
+                this.chart1.Series[2].Points.RemoveAt(0);
+
             }
         }
 
-        private void chart1_DoubleClick(object sender, EventArgs e)
-        {
-            foreach (var item in this.chart1.Series)
-            {
-                item.IsValueShownAsLabel = !item.IsValueShownAsLabel;
-            } 
-        }
     }
 }
