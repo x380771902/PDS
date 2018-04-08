@@ -95,8 +95,10 @@ namespace 风电场功率调度程序
                 toolTip1.SetToolTip(this.p1, "当前有功功率：" + this.label8.Text);
 
                 this.p1.Height = (int)(ActivePower / 2000 * this.Height);
-                this.p1.Location = new Point(159, (int)((1.0d - ActivePower / 2000)  * this.Height)-2);
-                 
+                this.p1.Location = new Point(189, (int)((1.0d - ActivePower / 2000)  * this.Height)-2);
+                
+
+
             }
         }
 

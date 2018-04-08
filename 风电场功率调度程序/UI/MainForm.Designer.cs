@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.FLP1 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,6 +81,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.labTotalReactivePower = new System.Windows.Forms.Label();
+            this.操作日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudLimitAp)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -161,7 +162,8 @@
             // 
             this.系统报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.指令记录报表ToolStripMenuItem,
-            this.风场功率调度报表ToolStripMenuItem});
+            this.风场功率调度报表ToolStripMenuItem,
+            this.操作日志ToolStripMenuItem});
             this.系统报表ToolStripMenuItem.Name = "系统报表ToolStripMenuItem";
             this.系统报表ToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.系统报表ToolStripMenuItem.Text = "系统报表(&S)";
@@ -427,55 +429,55 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chart1.BackColor = System.Drawing.Color.Transparent;
             this.chart1.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea2.AxisX.IsStartedFromZero = false;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            chartArea1.AxisX.IsStartedFromZero = false;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.DashDot;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisX.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45)));
-            chartArea2.AxisY.LabelStyle.Angle = -45;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Lime;
-            chartArea2.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
-            chartArea2.AxisY.Maximum = 50000D;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.AxisY2.MajorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea2.BackColor = System.Drawing.Color.Black;
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Height = 76.67067F;
-            chartArea2.InnerPlotPosition.Width = 88.42284F;
-            chartArea2.InnerPlotPosition.X = 6F;
-            chartArea2.InnerPlotPosition.Y = 1F;
-            chartArea2.IsSameFontSizeForAllAxes = true;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 100F;
-            chartArea2.Position.Width = 100F;
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.AxisY.LabelStyle.Angle = -45;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Lime;
+            chartArea1.AxisY.MajorTickMark.TickMarkStyle = System.Windows.Forms.DataVisualization.Charting.TickMarkStyle.InsideArea;
+            chartArea1.AxisY.Maximum = 50000D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY2.MajorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea1.BackColor = System.Drawing.Color.Black;
+            chartArea1.InnerPlotPosition.Auto = false;
+            chartArea1.InnerPlotPosition.Height = 76.67067F;
+            chartArea1.InnerPlotPosition.Width = 88.42284F;
+            chartArea1.InnerPlotPosition.X = 6F;
+            chartArea1.InnerPlotPosition.Y = 1F;
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 100F;
+            chartArea1.Position.Width = 100F;
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(171, 542);
             this.chart1.Name = "chart1";
-            series3.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkUpwardDiagonal;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series3.IsVisibleInLegend = false;
-            series3.IsXValueIndexed = true;
-            series3.LabelForeColor = System.Drawing.SystemColors.Control;
-            series3.Name = "实时功率";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.IsVisibleInLegend = false;
-            series4.LabelForeColor = System.Drawing.Color.White;
-            series4.Name = "限定功率";
-            series4.YValuesPerPoint = 2;
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.DarkUpwardDiagonal;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series1.IsVisibleInLegend = false;
+            series1.IsXValueIndexed = true;
+            series1.LabelForeColor = System.Drawing.SystemColors.Control;
+            series1.Name = "实时功率";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.IsVisibleInLegend = false;
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Name = "限定功率";
+            series2.YValuesPerPoint = 2;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(588, 211);
             this.chart1.TabIndex = 27;
             this.chart1.Text = "chart1";
@@ -597,6 +599,13 @@
             this.labTotalReactivePower.TabIndex = 40;
             this.labTotalReactivePower.Text = "未初始化";
             // 
+            // 操作日志ToolStripMenuItem
+            // 
+            this.操作日志ToolStripMenuItem.Name = "操作日志ToolStripMenuItem";
+            this.操作日志ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.操作日志ToolStripMenuItem.Text = "操作日志";
+            this.操作日志ToolStripMenuItem.Click += new System.EventHandler(this.操作日志ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -703,6 +712,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label labTotalReactivePower;
+        private System.Windows.Forms.ToolStripMenuItem 操作日志ToolStripMenuItem;
     }
 }
 

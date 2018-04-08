@@ -14,7 +14,7 @@ namespace 风电场功率调度程序
             try
             {
                string sqlstring = string.Format("insert into operatelog (logtime,username,logContext) " +
-                " VALUES( '{0}', '{1}', '{2}')",  DateTime.UtcNow.ToString(), userName, message);  
+                " VALUES( '{0}', '{1}', '{2}')",  DateTime.Now.ToString(), userName, message);  
                 int i = MysqlDBHelper.ExecuteCommand(sqlstring);
                 if (i > 0)
                 {

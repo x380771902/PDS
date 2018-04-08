@@ -96,6 +96,7 @@
     <Compile Include="Model\PowerCurve.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Model\WindFarmMessage.cs" />
+    <Compile Include="Mysql\MysqlDBHelper2.cs" />
     <Compile Include="Mysql\MysqlDBHelper.cs" />
     <Compile Include="UIControl\MessageBullet.cs">
       <SubType>UserControl</SubType>
@@ -114,6 +115,12 @@
     </Compile>
     <Compile Include="UI\Chart.Designer.cs">
       <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OperationListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OperationListForm.Designer.cs">
+      <DependentUpon>OperationListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\CommandListForm.cs">
       <SubType>Form</SubType>
@@ -173,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Chart.resx">
       <DependentUpon>Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OperationListForm.resx">
+      <DependentUpon>OperationListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CommandListForm.resx">
       <DependentUpon>CommandListForm.cs</DependentUpon>
@@ -338,6 +348,12 @@
     <Content Include="bin\Release\风电场功率调度程序.pdb" />
     <Content Include="bin\Release\风电场功率调度程序.vshost.exe" />
     <Content Include="bin\Release\风电场风机限电切机启机仿真程序.vshost.exe" />
+    <Content Include="Resources\10面板.png" />
+    <Content Include="Resources\5面板.png" />
+    <Content Include="Resources\6面板.png" />
+    <Content Include="Resources\7面板.png" />
+    <Content Include="Resources\8面板.png" />
+    <Content Include="Resources\9面板.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

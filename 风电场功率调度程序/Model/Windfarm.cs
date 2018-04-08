@@ -415,5 +415,35 @@ namespace 风电场功率调度程序
         /// </summary>
         public int ReactiveControlStrategy
         { get; set; }
+
+        /// <summary>
+        /// 有功功率闭锁信号
+        /// </summary>
+        public int TatolActivePowerBlockSignal
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        /// <summary>
+        /// 无功功率闭锁反馈信号
+        /// </summary>
+        public int TatolReactivePowerBlockSignal
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }

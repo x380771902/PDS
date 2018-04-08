@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace 风电场功率调度程序
 {
-    public class MysqlDBHelper
+    public class MysqlDBHelper2
     {
 
 
@@ -50,6 +50,7 @@ namespace 风电场功率调度程序
             
             MySqlCommand cmd = new MySqlCommand(safeSql, Connection);
             int result = cmd.ExecuteNonQuery();
+            connection.Close();
             return result;
           
         }
@@ -60,6 +61,7 @@ namespace 风电场功率调度程序
         {
             MySqlCommand cmd = new MySqlCommand(sql, Connection);
             cmd.Parameters.AddRange(values);
+            connection.Close();
             return cmd.ExecuteNonQuery();
         }
 
@@ -69,6 +71,7 @@ namespace 风电场功率调度程序
         {
             MySqlCommand cmd = new MySqlCommand(safeSql, Connection);
             int result = Convert.ToInt32(cmd.ExecuteScalar());
+            connection.Close();
             return result;
         }
 
@@ -79,6 +82,7 @@ namespace 风电场功率调度程序
             MySqlCommand cmd = new MySqlCommand(sql, Connection);
             cmd.Parameters.AddRange(values);
             int result = Convert.ToInt32(cmd.ExecuteScalar());
+            connection.Close();
             return result;
         }
 
@@ -88,6 +92,7 @@ namespace 风电场功率调度程序
         {
             MySqlCommand cmd = new MySqlCommand(safeSql, Connection);
             MySqlDataReader reader = cmd.ExecuteReader();
+            connection.Close();
             return reader;
         }
 
@@ -97,6 +102,7 @@ namespace 风电场功率调度程序
             MySqlCommand cmd = new MySqlCommand(sql, Connection);
             cmd.Parameters.AddRange(values);
             MySqlDataReader reader = cmd.ExecuteReader();
+            connection.Close();
             return reader;
         }
 
@@ -108,6 +114,7 @@ namespace 风电场功率调度程序
             MySqlCommand cmd = new MySqlCommand(safeSql, Connection);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(ds);
+            connection.Close();
             return ds.Tables[0];
         }
 
@@ -119,6 +126,7 @@ namespace 风电场功率调度程序
             cmd.Parameters.AddRange(values);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(ds);
+            connection.Close();
             return ds.Tables[0];
         }
 
@@ -162,6 +170,7 @@ namespace 风电场功率调度程序
             {
                 throw new Exception(ex.Message);
             }
+            connection.Close();
             return ds;
         }
     }

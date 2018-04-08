@@ -3,7 +3,7 @@
   <Class Name="风电场功率调度程序.Windfarm">
     <Position X="3.75" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>hSICGAEgEBAAAAAAABAEUFWAAEAEAgAAASAAABjAwAA=</HashCode>
+      <HashCode>hSICGIEgEBAAAAAAABAEUFWAAEAEggAAASCAABjAwAA=</HashCode>
       <FileName>Model\Windfarm.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -26,7 +26,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="风电场功率调度程序.EqualizingStrategy" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4.5" Y="7.5" Width="1.5" />
+    <Position X="3.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAEAAAAAAAAEAAAAAACAAAAAAA=</HashCode>
       <FileName>ControlStrategy\EqualizingStrategy.cs</FileName>
@@ -34,7 +34,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="风电场功率调度程序.EqualProportionStrategy" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.25" Y="7.5" Width="1.5" />
+    <Position X="5.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAEAAAAAAAAEAAAAAACAAAAAAA=</HashCode>
       <FileName>ControlStrategy\EqualProportionStrategy.cs</FileName>
@@ -42,7 +42,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="风电场功率调度程序.LowPowerOutageStrategy" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="7.75" Width="1.5" />
+    <Position X="7.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAEAAAAAAAAEAAAAAACAAAAAAA=</HashCode>
       <FileName>ControlStrategy\LowPowerOutageStrategy.cs</FileName>
@@ -50,7 +50,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="风电场功率调度程序.SpeedLimitStrategy" BaseTypeListCollapsed="true">
-    <Position X="6.25" Y="8.25" Width="1.5" />
+    <Position X="5.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAEAAAAAAAAEAAAAAACAAAAAAA=</HashCode>
       <FileName>ControlStrategy\SpeedLimitStrategy.cs</FileName>
@@ -58,7 +58,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="风电场功率调度程序.StateStrategy" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="8.5" Width="1.5" />
+    <Position X="7.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ControlStrategy\StateStrategy.cs</FileName>
@@ -78,15 +78,16 @@
       <FileName>Config\WindFarm_ConfigManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="风电场功率调度程序.ControlStrategy.SeasonStrategy" Collapsed="true">
+  <Class Name="风电场功率调度程序.SeasonStrategy" Collapsed="true">
     <Position X="11.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAABAAAEAAAAAAAAEAAAAAACAAAAAAA=</HashCode>
       <FileName>ControlStrategy\SeasonStrategy.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="风电场功率调度程序.IControlStrategy">
-    <Position X="4.5" Y="8.25" Width="1.5" />
+    <Position X="3.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAEAAAAAAAAEAAAAAACAAAAAAA=</HashCode>
       <FileName>ControlStrategy\IStrategy.cs</FileName>

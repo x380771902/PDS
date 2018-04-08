@@ -100,7 +100,7 @@ namespace 风电场功率调度程序
 
           
 
-            if (this.chart1.Series[0].Points.Count > 20)
+            if (this.chart1.Series[0].Points.Count > 60)
             {
                 this.chart1.Series[0].Points.RemoveAt(0);
                 this.chart1.Series[1].Points.RemoveAt(0);  
@@ -302,7 +302,11 @@ namespace 风电场功率调度程序
             clfp.ShowDialog();
         }
 
-       
+        private void 操作日志ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OperationListForm OLF = new OperationListForm();
+            OLF.ShowDialog();
+        }
     }
     #endregion
 

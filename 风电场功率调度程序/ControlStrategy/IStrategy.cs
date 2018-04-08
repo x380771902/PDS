@@ -24,6 +24,7 @@ namespace 风电场功率调度程序
         /// <summary>
         /// 执行计算
         /// </summary>
+        /// <param name="setActivcPowerLimitValue">全场有功设定值</param>
         /// <returns></returns>
         bool Caculate(string setActivcPowerLimitValue);
 
